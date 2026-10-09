@@ -3,7 +3,7 @@
 <meta name="description" content="QOJAN Design Agentur – Logos, Webseiten & Corporate Identity aus Hagen. Leistungen wählen, Preis sofort sehen.">
 <meta property="og:type" content="website"><meta property="og:url" content="https://aymanqochan-lab.github.io/qojan-design-agentur/">
 <meta property="og:title" content="QOJAN Design Agentur – Ihr Angebot">
-<meta property="og:description" content="Logos, Webseiten & Corporate Identity. Leistungen wählen, Preis sofort sehen. Deutsch · English · عربي">
+<meta property="og:description" content="Logos, Webseiten & Corporate Identity. Leistungen wählen, Preis sofort sehen. Deutsch · English · Svenska">
 <meta property="og:image" content="https://aymanqochan-lab.github.io/qojan-design-agentur/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="https://aymanqochan-lab.github.io/qojan-design-agentur/icon.png"><link rel="apple-touch-icon" href="https://aymanqochan-lab.github.io/qojan-design-agentur/icon.png">
@@ -345,8 +345,6 @@ p{margin:0}
 .langs{display:flex;gap:4px;border:1px solid var(--line)}
 .langs button{all:unset;cursor:pointer;padding:8px 12px;font:600 13px var(--thin);letter-spacing:.12em;color:var(--soft)}
 .langs button[aria-pressed="true"]{background:var(--orange);color:var(--white)}
-.langs button[data-l="ar"]{font-size:12px;padding-inline:9px;opacity:.7;border-inline-start:1px solid var(--line)}
-.langs button[data-l="ar"][aria-pressed="true"]{opacity:1}
 .langs button:focus-visible{outline:2px solid var(--orange)}
 .badge{position:absolute;top:-12px;inset-inline-end:16px;background:var(--orange);color:var(--white);font:600 12px var(--thin);letter-spacing:.2em;text-transform:uppercase;padding:5px 10px}
 [lang="ar"] body,[lang="ar"] .btn,[lang="ar"] .badge,[lang="ar"] .langs button{font-family:'Tajawal',Tahoma,Arial,sans-serif}
@@ -381,7 +379,7 @@ p{margin:0}
 
   <header class="top">
     <div class="brand"><div><b>QOJAN</b><small data-i="agency">Design Agentur</small></div></div>
-    <div class="top-r"><span class="beyond">Go Beyond</span><div class="langs" role="group" aria-label="Sprache / Language / Språk / اللغة"><button type="button" data-l="de">DE</button><button type="button" data-l="en">EN</button><button type="button" data-l="sv">SV</button><button type="button" data-l="ar">عربي</button></div></div>
+    <div class="top-r"><span class="beyond">Go Beyond</span><div class="langs" role="group" aria-label="Sprache / Language / Språk"><button type="button" data-l="de">DE</button><button type="button" data-l="en">EN</button><button type="button" data-l="sv">SV</button></div></div>
   </header>
 
   <section class="hero">
@@ -794,11 +792,12 @@ p{margin:0}
     msg.textContent=t.m1+' ('+name+'):\n'+(lines.join('\n')||'- '+t.m0)+'\n'+t.mo+': '+eur(once)+(msum?' · '+t.mm+': '+eur(msum):'')+'\n'+t.mq;
     msg.style.whiteSpace='pre-line';
   }
-  function setLang(l){L=T[l]?l:'de';try{localStorage.setItem('qojan-lang',L)}catch(e){}texts();render(false)}
+  const LANGS=['de','en','sv'];
+  function setLang(l){L=LANGS.includes(l)?l:'de';try{localStorage.setItem('qojan-lang',L)}catch(e){}texts();render(false)}
   document.querySelectorAll('.langs button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
   let start='de';
   const h=(location.hash||'').slice(1).toLowerCase();
-  if(T[h])start=h; else {try{const s=localStorage.getItem('qojan-lang');if(T[s])start=s}catch(e){} if(start==='de'){const n=(navigator.language||'').slice(0,2);if(n==='ar'||n==='en'||n==='sv')start=n}}
+  if(LANGS.includes(h))start=h; else {try{const s=localStorage.getItem('qojan-lang');if(LANGS.includes(s))start=s}catch(e){} if(start==='de'){const n=(navigator.language||'').slice(0,2);if(n==='en'||n==='sv')start=n}}
   L=start; applyPack('premium'); setLang(start);
   if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.25});
