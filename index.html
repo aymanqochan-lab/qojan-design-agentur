@@ -420,6 +420,17 @@ p{margin:0}
   .tot .save{flex-basis:100%;font-size:10.5px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .bar .btn{padding:11px 12px;font-size:11.5px;letter-spacing:.08em}
 }
+
+/* hover motion background: the service's own illustration, enlarged, blurred and drifting behind the row */
+.item .bgv{position:absolute;top:-35%;bottom:-35%;inset-inline-end:-4%;width:48%;display:grid;place-items:center;pointer-events:none;z-index:0;opacity:0;filter:blur(3.5px) brightness(1.35) saturate(1.5);transform:scale(.9);transition:opacity .45s ease,transform 1.2s cubic-bezier(.2,1,.3,1)}
+.item .bgv.viz{width:48%;height:auto;position:absolute;grid-area:auto}
+.item .bgv svg{width:100%;height:100%;overflow:visible}
+.item .bgv .c3d{left:50%;top:50%;margin:-28px 0 0 -46px}
+.item>:not(.bgv):not(.rip){position:relative;z-index:1}
+.item .viz{position:relative}
+.item:is(:hover,.play,:focus-visible) .bgv{opacity:.5;animation:bgDrift 5s ease-in-out infinite alternate}
+@keyframes bgDrift{from{transform:scale(1.05) translate(0,0) rotate(-4deg)}to{transform:scale(1.3) translate(-8%,3%) rotate(3deg)}}
+@media (max-width:560px){.item:is(:hover,.play,:focus-visible) .bgv{opacity:.35}.item .bgv.viz{width:70%;height:auto}.item .bgv{filter:blur(3px) brightness(1.35) saturate(1.5)}}
 </style>
 
 <div class="wrap">
@@ -586,7 +597,7 @@ p{margin:0}
   function mk(list,root){
     list.forEach(it=>{
       const b=document.createElement('button');b.type='button';b.className='item';b.id='it-'+it.id;b.dataset.id=it.id;b.setAttribute('aria-pressed','false');
-      b.innerHTML='<span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="viz">'+(VIZ[it.id]||'')+'</span><span class="t">'+(it.id==='care'?'<i class="rec"></i>':'')+'<b></b><span></span><em class="inpk" hidden></em></span><span class="pr"></span>';
+      b.innerHTML='<span class="bgv viz" aria-hidden="true">'+(VIZ[it.id]||'')+'</span><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span class="viz">'+(VIZ[it.id]||'')+'</span><span class="t">'+(it.id==='care'?'<i class="rec"></i>':'')+'<b></b><span></span><em class="inpk" hidden></em></span><span class="pr"></span>';
       b.addEventListener('click',e=>{ if(!matchMedia('(prefers-reduced-motion: reduce)').matches){const r=b.getBoundingClientRect(),s=document.createElement('span');s.className='rip';s.style.left=((e.clientX||r.left+r.width/2)-r.left)+'px';s.style.top=((e.clientY||r.top+r.height/2)-r.top)+'px';b.appendChild(s);setTimeout(()=>s.remove(),700)} b.classList.remove('play'); void b.offsetWidth; b.classList.add('play'); clearTimeout(b._pt); b._pt=setTimeout(()=>b.classList.remove('play'),2000); if(sel.has(it.id)) sel.delete(it.id); else { sel.add(it.id); if(it.x) sel.delete(it.x);} pack=detect(); render(true)});
       root.appendChild(b);
     });
