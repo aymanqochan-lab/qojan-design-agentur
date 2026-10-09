@@ -9,8 +9,13 @@
 <link rel="icon" href="https://aymanqochan-lab.github.io/qojan-design-agentur/icon.png"><link rel="apple-touch-icon" href="https://aymanqochan-lab.github.io/qojan-design-agentur/icon.png">
 <meta name="theme-color" content="#3F4044">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600&family=Montserrat:wght@600;800&family=Tajawal:wght@300;400;700&display=swap">
+<style>
+@font-face{font-family:'Josefin Sans';src:url(fonts/josefin.woff) format('woff');font-weight:100 700;font-display:swap}
+@font-face{font-family:'Montserrat';src:url(fonts/montserrat.woff) format('woff');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Tajawal';src:url(fonts/tajawal-300.woff) format('woff');font-weight:200 300;font-display:swap}
+@font-face{font-family:'Tajawal';src:url(fonts/tajawal-400.woff) format('woff');font-weight:400 500;font-display:swap}
+@font-face{font-family:'Tajawal';src:url(fonts/tajawal-700.woff) format('woff');font-weight:600 900;font-display:swap}
+</style>
 <style>
 /* Layout: one column like the business card turned into a page — graphite card stock, burnt-orange rules, thin spaced capitals. Services are toggles; a fixed bar adds up the price live. */
 :root{
@@ -242,6 +247,18 @@ p{margin:0}
 }
 @media (max-width:560px){.item .pr{justify-self:start;text-align:start;display:flex;gap:6px;align-items:baseline}.item .pr small{display:inline}.item .t b{font-size:18px}.item .t span{font-size:14px}.tot .save{font-size:11px;flex-basis:100%;line-height:1.3}.bar{padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px))}.bar-in{flex-wrap:nowrap;gap:10px}.tot{flex:1;min-width:0;row-gap:2px;column-gap:14px}.tot small{font-size:10px}.bar .btn{flex:none;padding:12px 12px;font-size:12px;letter-spacing:.08em}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* work */
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.wk{display:flex;flex-direction:column;gap:10px;padding:22px;border:1px solid var(--line);background:rgba(47,48,51,.6);color:var(--white);text-decoration:none;transition:transform .2s,border-color .2s;position:relative;overflow:hidden}
+.wk:hover,.wk:focus-visible{transform:translateY(-3px);border-color:var(--orange);outline:none}
+.wk .sw{height:96px;margin:-22px -22px 6px;display:flex;align-items:center;justify-content:center;font-size:26px;letter-spacing:.12em}
+.wk b{font-weight:400;font-size:21px}
+.wk span{font-size:15px;color:var(--soft)}
+.wk em{font-style:normal;font-weight:600;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-top:auto}
+.legal{display:flex;gap:18px;justify-content:center;font-size:14px;padding-top:8px}
+.legal a{color:var(--soft)}
+@media (max-width:760px){.work{grid-template-columns:1fr}}
 </style>
 
 <div class="wrap">
@@ -281,6 +298,16 @@ p{margin:0}
     <p class="note" data-i="dom">Domain (ca. 15 € pro Jahr) und ein Buchungsprogramm wie Fresha (ca. 13 € pro Monat) laufen auf Ihren Namen und werden direkt an den Anbieter gezahlt.</p>
   </section>
 
+  <section class="sec" id="arbeiten">
+    <p class="lbl" data-i="wl">Referenzen</p>
+    <h2 data-i="wh">Meine Arbeiten</h2>
+    <div class="work">
+      <a class="wk" href="https://aymanqochan-lab.github.io/goransonska/grillkoket/" target="_blank" rel="noopener"><div class="sw" style="background:linear-gradient(135deg,#10251a,#050505);font-family:Georgia,serif;color:#efe6d2">GRILLKÖKET</div><b>Grillköket</b><span data-i="w1">Restaurant · Lindesberg · Website mit Menü und Online-Bestellung</span><em data-i="wv">Ansehen →</em></a>
+      <a class="wk" href="https://aymanqochan-lab.github.io/goransonska/" target="_blank" rel="noopener"><div class="sw" style="background:linear-gradient(135deg,#2a2620,#14130f);font-family:Georgia,serif;color:#c9a14a">Göransonska</div><b>Göransonska</b><span data-i="w2">Restaurant &amp; Bar · Lindesberg · Website mit Tischreservierung</span><em data-i="wv">Ansehen →</em></a>
+      <a class="wk" href="https://aymanqochan.wixsite.com/diggex-1" target="_blank" rel="noopener"><div class="sw" style="background:linear-gradient(135deg,#0a3a6b,#001B3D);font-family:var(--bold);font-weight:800;color:#fff">DiggEx</div><b>DiggEx</b><span data-i="w3">Online-Shop für Baumaschinen · Schweden</span><em data-i="wv">Ansehen →</em></a>
+    </div>
+  </section>
+
   <section class="sec">
     <p class="lbl" data-i="how">So geht es los</p>
     <h2 data-i="howh">In drei Schritten</h2>
@@ -299,6 +326,7 @@ p{margin:0}
     <div class="row"><a class="btn" id="wa" href="https://wa.me/4915565770219" target="_blank" rel="noopener" data-i="wa" style="text-decoration:none;background:#25D366;color:#0B2E17">Per WhatsApp senden</a><button class="btn" id="copy" type="button" data-i="copy">Nachricht kopieren</button><span class="note" id="toast" role="status"></span></div>
     <p class="note">Ayman Qochan · QOJAN <span data-i="agency">Design Agentur</span> · Hagen · <a href="https://wa.me/4915565770219" target="_blank" rel="noopener" style="color:inherit;user-select:all" dir="ltr">WhatsApp +49 15565 770219</a></p>
   </section>
+  <p class="legal"><a href="impressum.html" data-i="imp">Impressum</a><a href="impressum.html#datenschutz" data-i="dsg">Datenschutz</a></p>
 </div>
 
 <div class="bar" role="region" aria-label="Gesamtpreis">
@@ -335,7 +363,7 @@ p{margin:0}
   };
   // ---- Texte ----
   const T={
-    de:{agency:'Design Agentur',rec:'Empfohlen',mnote:'Wartung: bei Premium ab dem 4. Monat (3 Monate gratis), sonst ab dem 1. Monat. Video-Abo: ab dem 1. Monat. Monatlich kündbar.',lname:'IHR LOGO',h1:'Ihr Auftritt.<br><b>Ihre Wahl.</b>',lead:'Wählen Sie die Leistungen, die Ihr Geschäft braucht. Der Preis steht sofort unten.',svcline:'Logos · Webseiten · Corporate Identity',
+    de:{wl:'Referenzen',wh:'Meine Arbeiten',w1:'Restaurant · Lindesberg · Website mit Menü und Online-Bestellung',w2:'Restaurant & Bar · Lindesberg · Website mit Tischreservierung',w3:'Online-Shop für Baumaschinen · Schweden',wv:'Ansehen →',imp:'Impressum',dsg:'Datenschutz',agency:'Design Agentur',rec:'Empfohlen',mnote:'Wartung: bei Premium ab dem 4. Monat (3 Monate gratis), sonst ab dem 1. Monat. Video-Abo: ab dem 1. Monat. Monatlich kündbar.',lname:'IHR LOGO',h1:'Ihr Auftritt.<br><b>Ihre Wahl.</b>',lead:'Wählen Sie die Leistungen, die Ihr Geschäft braucht. Der Preis steht sofort unten.',svcline:'Logos · Webseiten · Corporate Identity',
       s1:'Schritt 1',s1h:'Paket wählen',nb:'Basis',db:'Website bis 4 Bereiche (DE + EN), Online-Terminbuchung, Karte, WhatsApp, Google-Grundeinstellungen',pop:'Beliebt',np:'Premium',dp:'Bis 5 Seiten, Buchung direkt auf der Website, Visitenkarte, NFC-Aufsteller, 3 KI-Videos, Google-Profil, 3 Monate Wartung gratis',nc:'Individuell',pc:'Ihre Wahl',dc:'Nur die Leistungen, die Sie wirklich brauchen',
       s2:'Schritt 2',s2h:'Leistungen anpassen',once:'Einmalig',month:'Monatlich',perm:'pro Monat',
       dom:'Domain (ca. 15 € pro Jahr) und ein Buchungsprogramm wie Fresha (ca. 13 € pro Monat) laufen auf Ihren Namen und werden direkt an den Anbieter gezahlt. Fotos, Texte und Druckkosten kommen von Ihnen.',
@@ -344,7 +372,7 @@ p{margin:0}
       copied:'Kopiert. Jetzt per WhatsApp an Ayman schicken.',marked:'Text markiert. Bitte kopieren.',save:'Paketpreis: Sie sparen ',free:'3 Monate Wartung gratis',
       m1:'Hallo Ayman, ich interessiere mich für folgendes Angebot',m0:'noch nichts gewählt',mo:'Einmalig',mm:'Monatlich',mq:'Wann können wir sprechen?',mmon:'monatlich',
       items:{web:['Website','Design und Entwicklung, Deutsch + Englisch, perfekt auf dem Handy'],book:['Online-Terminbuchung','Kunden buchen rund um die Uhr, Sie bekommen jede Buchung aufs Handy'],bookpro:['Buchung direkt auf der Website','Ohne Umweg, im Design Ihrer Seite'],logo:['Individuelles Logo','Einzigartig, in allen Formaten für Druck und Web'],ci:['Corporate Identity','Farben, Schriften und Vorlagen für einen einheitlichen Auftritt'],card:['Visitenkarten-Design','Vorder- und Rückseite, druckfertig'],nfc:['NFC-Aufsteller für Google-Bewertungen','Kunde tippt mit dem Handy, die Bewertung ist offen'],gbp:['Google-Unternehmensprofil','Einrichten und optimieren, damit Kunden Sie auf Google Maps finden'],vid3:['3 KI-Videos zum Start','Für Instagram, TikTok und Ihre Website'],care:['Wartung','Fehler beheben, Sicherheits-Updates, bis zu 1 Stunde Änderungen pro Monat (Texte, Bilder, Preise, Öffnungszeiten) und Hilfe per WhatsApp. Neue Seiten oder Funktionen: eigenes Angebot.'],vids:['Video-Abo','4 neue KI-Videos pro Woche']}},
-    en:{agency:'Design Agency',rec:'Recommended',mnote:'Maintenance: with Premium from month 4 (3 months free), otherwise from month 1. Video subscription: from month 1. Cancel monthly.',lname:'YOUR LOGO',h1:'Your brand.<br><b>Your choice.</b>',lead:'Pick the services your business needs. The price shows up instantly below.',svcline:'Logos · Websites · Corporate Identity',
+    en:{wl:'Portfolio',wh:'My work',w1:'Restaurant · Lindesberg · Website with menu and online ordering',w2:'Restaurant & bar · Lindesberg · Website with table booking',w3:'Online shop for construction machines · Sweden',wv:'View →',imp:'Legal notice',dsg:'Privacy',agency:'Design Agency',rec:'Recommended',mnote:'Maintenance: with Premium from month 4 (3 months free), otherwise from month 1. Video subscription: from month 1. Cancel monthly.',lname:'YOUR LOGO',h1:'Your brand.<br><b>Your choice.</b>',lead:'Pick the services your business needs. The price shows up instantly below.',svcline:'Logos · Websites · Corporate Identity',
       s1:'Step 1',s1h:'Choose a package',nb:'Basic',db:'Website up to 4 sections (DE + EN), online booking, map, WhatsApp, basic Google setup',pop:'Popular',np:'Premium',dp:'Up to 5 pages, booking on your website, business card, NFC stand, 3 AI videos, Google profile, 3 months maintenance free',nc:'Custom',pc:'Your pick',dc:'Only the services you really need',
       s2:'Step 2',s2h:'Customize services',once:'One-time',month:'Monthly',perm:'per month',
       dom:'The domain (about €15 per year) and a booking app like Fresha (about €13 per month) are in your name and paid directly to the provider. Photos, texts and printing costs come from you.',
@@ -353,7 +381,7 @@ p{margin:0}
       copied:'Copied. Now send it to Ayman on WhatsApp.',marked:'Text selected. Please copy it.',save:'Package price: you save ',free:'3 months maintenance free',
       m1:'Hello Ayman, I am interested in the following offer',m0:'nothing selected yet',mo:'One-time',mm:'Monthly',mq:'When can we talk?',mmon:'monthly',
       items:{web:['Website','Design and development, German + English, perfect on mobile'],book:['Online booking','Customers book around the clock, every booking goes to your phone'],bookpro:['Booking directly on your website','No detour, in the design of your site'],logo:['Custom logo','Unique, in every format for print and web'],ci:['Corporate identity','Colors, fonts and templates for a consistent look'],card:['Business card design','Front and back, ready to print'],nfc:['NFC stand for Google reviews','Customers tap their phone and the review page opens'],gbp:['Google Business Profile','Set up and optimized so customers find you on Google Maps'],vid3:['3 AI videos to start','For Instagram, TikTok and your website'],care:['Maintenance','Bug fixes, security updates, up to 1 hour of changes per month (texts, photos, prices, opening hours) and help on WhatsApp. New pages or features: separate quote.'],vids:['Video subscription','4 new AI videos every week']}},
-    ar:{agency:'وكالة تصميم',rec:'موصى بها',mnote:'الصيانة: في المميزة تبدأ من الشهر الرابع (3 أشهر مجانًا)، وفي غيرها من الشهر الأول. اشتراك الفيديو: من الشهر الأول. يمكن الإلغاء شهريًا.',lname:'شعارك',h1:'حضورك.<br><b>اختيارك.</b>',lead:'اختر الخدمات التي يحتاجها عملك، ويظهر السعر فورًا في الأسفل.',svcline:'شعارات · مواقع إلكترونية · هوية تجارية',
+    ar:{wl:'أعمالي',wh:'مشاريع أنجزتها',w1:'مطعم · ليندسبيرغ · موقع مع قائمة الطعام وطلب أونلاين',w2:'مطعم وبار · ليندسبيرغ · موقع مع حجز طاولات',w3:'متجر أونلاين لمعدات البناء · السويد',wv:'شاهد ←',imp:'بيانات الناشر',dsg:'الخصوصية',agency:'وكالة تصميم',rec:'موصى بها',mnote:'الصيانة: في المميزة تبدأ من الشهر الرابع (3 أشهر مجانًا)، وفي غيرها من الشهر الأول. اشتراك الفيديو: من الشهر الأول. يمكن الإلغاء شهريًا.',lname:'شعارك',h1:'حضورك.<br><b>اختيارك.</b>',lead:'اختر الخدمات التي يحتاجها عملك، ويظهر السعر فورًا في الأسفل.',svcline:'شعارات · مواقع إلكترونية · هوية تجارية',
       s1:'الخطوة 1',s1h:'اختر الباقة',nb:'الأساسية',db:'موقع حتى 4 أقسام (ألماني + إنجليزي)، حجز أونلاين، خريطة، واتساب، إعداد Google أساسي',pop:'الأكثر طلبًا',np:'المميزة',dp:'حتى 5 صفحات، حجز داخل موقعك، بطاقة عمل، ستاند NFC، 3 فيديوهات ذكاء اصطناعي، ملف Google، 3 أشهر صيانة مجانًا',nc:'مخصّصة',pc:'على ذوقك',dc:'فقط الخدمات التي تحتاجها فعلًا',
       s2:'الخطوة 2',s2h:'خصّص الخدمات',once:'مرة واحدة',month:'شهريًا',perm:'في الشهر',
       dom:'الدومين (حوالي 15 € سنويًا) وبرنامج الحجز مثل Fresha (حوالي 13 € شهريًا) يكونان باسمك، وتدفعهما مباشرة للمزوّد. الصور والنصوص وتكاليف الطباعة عليك.',
