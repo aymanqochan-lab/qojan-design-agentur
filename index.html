@@ -345,6 +345,8 @@ p{margin:0}
 .langs{display:flex;gap:4px;border:1px solid var(--line)}
 .langs button{all:unset;cursor:pointer;padding:8px 12px;font:600 13px var(--thin);letter-spacing:.12em;color:var(--soft)}
 .langs button[aria-pressed="true"]{background:var(--orange);color:var(--white)}
+.langs button[data-l="ar"]{font-size:12px;padding-inline:9px;opacity:.7;border-inline-start:1px solid var(--line)}
+.langs button[data-l="ar"][aria-pressed="true"]{opacity:1}
 .langs button:focus-visible{outline:2px solid var(--orange)}
 .badge{position:absolute;top:-12px;inset-inline-end:16px;background:var(--orange);color:var(--white);font:600 12px var(--thin);letter-spacing:.2em;text-transform:uppercase;padding:5px 10px}
 [lang="ar"] body,[lang="ar"] .btn,[lang="ar"] .badge,[lang="ar"] .langs button{font-family:'Tajawal',Tahoma,Arial,sans-serif}
@@ -379,7 +381,7 @@ p{margin:0}
 
   <header class="top">
     <div class="brand"><div><b>QOJAN</b><small data-i="agency">Design Agentur</small></div></div>
-    <div class="top-r"><span class="beyond">Go Beyond</span><div class="langs" role="group" aria-label="Sprache / Language / اللغة"><button type="button" data-l="de">DE</button><button type="button" data-l="en">EN</button><button type="button" data-l="ar">عربي</button></div></div>
+    <div class="top-r"><span class="beyond">Go Beyond</span><div class="langs" role="group" aria-label="Sprache / Language / Språk / اللغة"><button type="button" data-l="de">DE</button><button type="button" data-l="en">EN</button><button type="button" data-l="sv">SV</button><button type="button" data-l="ar">عربي</button></div></div>
   </header>
 
   <section class="hero">
@@ -494,6 +496,15 @@ p{margin:0}
       copied:'Copied. Now send it to Ayman on WhatsApp.',marked:'Text selected. Please copy it.',save:'Package price: you save ',free:'3 months maintenance free',
       m1:'Hello Ayman, I am interested in the following offer',m0:'nothing selected yet',mo:'One-time',mm:'Monthly',mq:'When can we talk?',mmon:'monthly',
       items:{web:['Website','Design and development, German + English, perfect on mobile'],book:['Online booking','Customers book around the clock, every booking goes to your phone'],bookpro:['Booking directly on your website','No detour, in the design of your site'],logo:['Custom logo','Unique, in every format for print and web'],ci:['Corporate identity','Colors, fonts and templates for a consistent look'],card:['Business card design','Front and back, ready to print'],nfc:['NFC stand for Google reviews','Customers tap their phone and the review page opens'],gbp:['Google Business Profile','Set up and optimized so customers find you on Google Maps'],vid3:['3 AI videos to start','For Instagram, TikTok and your website'],care:['Maintenance','Bug fixes, security updates, up to 1 hour of changes per month (texts, photos, prices, opening hours) and help on WhatsApp. New pages or features: separate quote.'],vids:['Video subscription','4 new AI videos every week']}},
+    sv:{wl:'Referenser',wh:'Mina arbeten',w1:'Restaurang · Lindesberg · Webbplats med meny och onlinebeställning',w2:'Restaurang & bar · Lindesberg · Webbplats med bordsbokning',w3:'Webbshop för entreprenadmaskiner · Sverige',wv:'Visa →',imp:'Impressum',dsg:'Integritet',agency:'Designbyrå',rec:'Rekommenderas',mnote:'Underhåll: med Premium från månad 4 (3 månader gratis), annars från månad 1. Videoabonnemang: från månad 1. Kan sägas upp varje månad.',lname:'DIN LOGGA',h1:'Ditt varumärke.<br><b>Ditt val.</b>',lead:'Välj de tjänster ditt företag behöver. Priset syns direkt längst ner.',svcline:'Logotyper · Webbplatser · Grafisk profil',
+      s1:'Steg 1',s1h:'Välj paket',nb:'Bas',db:'Webbplats upp till 4 sektioner (2 språk), onlinebokning, karta, WhatsApp, grundläggande Google-inställningar',pop:'Populär',np:'Premium',dp:'Upp till 5 sidor, bokning direkt på webbplatsen, visitkort, NFC-ställ, 3 AI-videor, Google-profil, 3 månaders underhåll gratis',nc:'Eget val',pc:'Ditt val',dc:'Bara de tjänster du verkligen behöver',
+      s2:'Steg 2',s2h:'Anpassa tjänsterna',once:'Engångs',month:'Månadsvis',perm:'per månad',
+      dom:'Domänen (ca 15 € per år) och ett bokningsprogram som Fresha (ca 13 € per månad) står i ditt namn och betalas direkt till leverantören. Bilder, texter och tryckkostnader står du för.',
+      how:'Så kommer vi igång',howh:'I tre steg',st1:'Skicka ditt val och betala 50 % i förskott.',st2:'Klart på ca 2 veckor. 2 ändringsrundor gratis, därefter 45 € per timme.',st3:'Allt går live. Betala resterande 50 %.',
+      sel:'Ditt val',ready:'Redo? Skicka mig ditt val.',copy:'Kopiera meddelandet',wa:'Skicka via WhatsApp',send:'Skicka ditt val',
+      copied:'Kopierat. Skicka det nu till Ayman på WhatsApp.',marked:'Texten är markerad. Kopiera den.',save:'Paketpris: du sparar ',free:'3 månaders underhåll gratis',
+      m1:'Hej Ayman, jag är intresserad av följande erbjudande',m0:'inget valt ännu',mo:'Engångs',mm:'Månadsvis',mq:'När kan vi prata?',mmon:'per månad',
+      items:{web:['Webbplats','Design och utveckling, två språk, perfekt i mobilen'],book:['Onlinebokning','Kunderna bokar dygnet runt, varje bokning kommer till din mobil'],bookpro:['Bokning direkt på webbplatsen','Utan omvägar, i din webbplats design'],logo:['Egen logotyp','Unik, i alla format för tryck och webb'],ci:['Grafisk profil','Färger, typsnitt och mallar för ett enhetligt intryck'],card:['Visitkortsdesign','Fram- och baksida, tryckfärdig'],nfc:['NFC-ställ för Google-recensioner','Kunden håller mobilen mot stället och recensionen öppnas'],gbp:['Google-företagsprofil','Konfigurera och optimera så att kunder hittar dig på Google Maps'],vid3:['3 AI-videor till starten','För Instagram, TikTok och din webbplats'],care:['Underhåll','Felrättning, säkerhetsuppdateringar, upp till 1 timme ändringar per månad (texter, bilder, priser, öppettider) och hjälp via WhatsApp. Nya sidor eller funktioner: separat offert.'],vids:['Videoabonnemang','4 nya AI-videor varje vecka']}},
     ar:{wl:'أعمالي',wh:'مشاريع أنجزتها',w1:'مطعم · ليندسبيرغ · موقع مع قائمة الطعام وطلب أونلاين',w2:'مطعم وبار · ليندسبيرغ · موقع مع حجز طاولات',w3:'متجر أونلاين لمعدات البناء · السويد',wv:'شاهد ←',imp:'بيانات الناشر',dsg:'الخصوصية',agency:'وكالة تصميم',rec:'موصى بها',mnote:'الصيانة: في المميزة تبدأ من الشهر الرابع (3 أشهر مجانًا)، وفي غيرها من الشهر الأول. اشتراك الفيديو: من الشهر الأول. يمكن الإلغاء شهريًا.',lname:'شعارك',h1:'حضورك.<br><b>اختيارك.</b>',lead:'اختر الخدمات التي يحتاجها عملك، ويظهر السعر فورًا في الأسفل.',svcline:'شعارات · مواقع إلكترونية · هوية تجارية',
       s1:'الخطوة 1',s1h:'اختر الباقة',nb:'الأساسية',db:'موقع حتى 4 أقسام (ألماني + إنجليزي)، حجز أونلاين، خريطة، واتساب، إعداد Google أساسي',pop:'الأكثر طلبًا',np:'المميزة',dp:'حتى 5 صفحات، حجز داخل موقعك، بطاقة عمل، ستاند NFC، 3 فيديوهات ذكاء اصطناعي، ملف Google، 3 أشهر صيانة مجانًا',nc:'مخصّصة',pc:'على ذوقك',dc:'فقط الخدمات التي تحتاجها فعلًا',
       s2:'الخطوة 2',s2h:'خصّص الخدمات',once:'مرة واحدة',month:'شهريًا',perm:'في الشهر',
@@ -525,7 +536,7 @@ p{margin:0}
     vids:S((()=>{let c='';for(let i=0;i<7;i++){const x=6+i*16;c+='<rect class="f" x="'+x+'" y="18" width="13" height="44" rx="2"/>';if([0,2,4,5].includes(i))c+='<g class="pop" style="animation-delay:'+(0.15+i*0.1)+'s"><rect class="o" x="'+(x+1.5)+'" y="30" width="10" height="16" rx="1.5"/><path class="k" d="M'+(x+4.5)+' 34 l5 4 l-5 4 z"/></g>';}return c+'<text class="tx fade" style="animation-delay:.9s" x="60" y="76" text-anchor="middle" font-size="10">4×</text>';})())
   };
   const sel=new Set(); let pack='premium'; let L='de';
-  const eur=n=>L==='en'?'€'+n.toLocaleString('en-GB'):n.toLocaleString('de-DE')+' €';
+  const eur=n=>L==='en'?'€'+n.toLocaleString('en-GB'):n.toLocaleString(L==='sv'?'sv-SE':'de-DE')+' €';
   function mk(list,root){
     list.forEach(it=>{
       const b=document.createElement('button');b.type='button';b.className='item';b.id='it-'+it.id;b.dataset.id=it.id;b.setAttribute('aria-pressed','false');
@@ -586,6 +597,27 @@ p{margin:0}
         ['Business card design','Front and back, matching your website. You pay for printing.'],
         ['3 AI videos to start','Short videos for Instagram, TikTok and your website.'],
         ['3 months maintenance free','Bug fixes, updates, up to 1 hour of changes per month and help on WhatsApp, at no cost. After that €39 per month, cancel monthly.']]}},
+    sv:{choose:{basis:'Välj Bas',premium:'Välj Premium'},back:'Tillbaka',close:'Stäng',
+      gs:'Google-sökning',gm:'Google Maps',gin:{basis:'Ingår i Bas',premium:'Ingår i Premium'},gout:'Endast Premium',
+      gsl:'Ditt företag – Din stad',gsu:'www.ditt-foretag.se',gsd:'Boka tid online. Öppettider, priser och kontakt.',
+      gml:'Ditt företag',gms:'★★★★★ 4,9 · Öppet nu',
+      gx:'Google-sökning: din webbplats syns i sökresultaten. Google Maps: ditt företag syns på kartan, med öppettider, bilder och recensioner.',
+      note:'Paketpriserna är engångspriser. Domänen och bokningsprogrammet står i ditt namn.',
+      basis:{h:'Det här får du med Bas',sub:'Klart på ca 2 veckor · Underhåll valfritt, 39 € per månad',list:[
+        ['Modern webbplats','Upp till 4 sektioner, på två språk. Ser perfekt ut i varje mobil.'],
+        ['Onlinebokning','Kunderna bokar själva, dygnet runt. Varje ny bokning kommer direkt till din mobil.'],
+        ['Kontakt, karta, WhatsApp','Kunderna ser var du finns och skriver till dig med ett klick.'],
+        ['Grundläggande Google-inställningar','Vi anmäler din webbplats till Google och skriver titel och beskrivning, så att Google hittar den och visar den i sökningen.'],
+        ['2 ändringsrundor gratis','Du berättar vad du vill ändra. Två gånger utan extra kostnad.']],
+        no:['Ingår inte i Bas','Google-profil på Google Maps, NFC-ställ, visitkort och videor ingår i Premium.']},
+      premium:{h:'Det här får du med Premium',sub:'Klart på ca 2 veckor · 3 månaders underhåll gratis',list:[
+        ['Allt i Bas','Webbplats, onlinebokning, kontakt, karta, WhatsApp och grundläggande Google-inställningar.'],
+        ['Större webbplats, bokning direkt på sidan','Upp till 5 sidor. Kunderna bokar direkt på din webbplats, utan omvägar.'],
+        ['Google-profil på Google Maps','När någon i närheten söker syns ditt företag på kartan: med öppettider, bilder, recensioner och bokningsknapp. Vi ordnar allt.'],
+        ['NFC-ställ för recensioner','Kunden håller mobilen mot stället och Google-recensionen öppnas. Fler bra recensioner tar dig högre upp på Google.'],
+        ['Visitkortsdesign','Fram- och baksida, i samma stil som din webbplats. Trycket betalar du själv.'],
+        ['3 AI-videor till starten','Korta videor för Instagram, TikTok och din webbplats.'],
+        ['3 månaders underhåll gratis','Felrättning, uppdateringar, upp till 1 timme ändringar per månad och hjälp via WhatsApp, utan kostnad. Därefter 39 € per månad, kan sägas upp varje månad.']]}},
     ar:{choose:{basis:'اختر الأساسية',premium:'اختر المميزة'},back:'رجوع',close:'إغلاق',
       gs:'بحث Google',gm:'خرائط Google',gin:{basis:'في الأساسية',premium:'في المميزة'},gout:'في المميزة فقط',
       gsl:'اسم محلك – مدينتك',gsu:'www.your-business.de',gsd:'احجز موعدك أونلاين. ساعات العمل والأسعار والتواصل.',
@@ -615,6 +647,9 @@ p{margin:0}
     en:{trust:['Ready in about 2 weeks','2 rounds of changes free','50% now, 50% on delivery'],was:'Separately',saved:'You save ',
       seeg:'How customers find you on Google',tlh:'What happens next',tl:[['Send your pick','50% upfront'],['I build your site','about 2 weeks'],['Live','Remaining 50%']],
       proof:'Already live: Grillköket, Göransonska, DiggEx',ask:'Ask on WhatsApp',askm:'Hello Ayman, I have a question about the package ',hot:'Popular',seg:'Package'},
+    sv:{trust:['Klart på ca 2 veckor','2 ändringsrundor gratis','50 % nu, 50 % vid leverans'],was:'Separat',saved:'Du sparar ',
+      seeg:'Så hittar kunderna dig på Google',tlh:'Så går det till',tl:[['Skicka ditt val','50 % i förskott'],['Jag bygger din sida','ca 2 veckor'],['Live','Resterande 50 %']],
+      proof:'Redan live: Grillköket, Göransonska, DiggEx',ask:'Fråga via WhatsApp',askm:'Hej Ayman, jag har en fråga om paketet ',hot:'Populär',seg:'Paket'},
     ar:{trust:['جاهز خلال أسبوعين تقريبًا','جولتا تعديل مجانًا','50% الآن و50% عند التسليم'],was:'منفردة',saved:'توفّر ',
       seeg:'كيف يجدك العملاء على Google',tlh:'ماذا يحدث بعد ذلك',tl:[['أرسل اختيارك','دفعة 50%'],['أبني موقعك','حوالي أسبوعين'],['أونلاين','الـ 50% الباقية']],
       proof:'مواقع منشورة: Grillköket و Göransonska و DiggEx',ask:'اسأل عبر واتساب',askm:'مرحبًا أيمن، عندي سؤال عن الباقة ',hot:'الأكثر طلبًا',seg:'الباقة'}
@@ -763,7 +798,7 @@ p{margin:0}
   document.querySelectorAll('.langs button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
   let start='de';
   const h=(location.hash||'').slice(1).toLowerCase();
-  if(T[h])start=h; else {try{const s=localStorage.getItem('qojan-lang');if(T[s])start=s}catch(e){} if(start==='de'){const n=(navigator.language||'').slice(0,2);if(n==='ar'||n==='en')start=n}}
+  if(T[h])start=h; else {try{const s=localStorage.getItem('qojan-lang');if(T[s])start=s}catch(e){} if(start==='de'){const n=(navigator.language||'').slice(0,2);if(n==='ar'||n==='en'||n==='sv')start=n}}
   L=start; applyPack('premium'); setLang(start);
   if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.25});
