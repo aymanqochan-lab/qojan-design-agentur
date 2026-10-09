@@ -372,6 +372,54 @@ p{margin:0}
 .legal{display:flex;gap:18px;justify-content:center;font-size:14px;padding-top:8px}
 .legal a{color:var(--soft)}
 @media (max-width:760px){.work{grid-template-columns:1fr}}
+
+/* phone: tighter scale so more fits on one screen */
+@media (max-width:560px){
+  body{font-size:16px;padding-inline:16px;padding-block:0 96px}
+  .wrap{gap:48px}
+  .sec{gap:18px}
+  .sec h2{font-size:24px}
+  .lbl{font-size:12px}
+  .hero h1{font-size:38px}
+  .hero .lead{font-size:16px}
+  .packs{gap:12px}
+  .pack{padding:16px 18px;gap:4px}
+  .pack .n{font-size:12px}
+  .pack .p{font-size:28px}
+  .pack .d{font-size:13.5px;line-height:1.45}
+  .badge{font-size:10px;padding:4px 8px;top:-10px}
+  .group-t{font-size:12px;padding-bottom:8px}
+  .svc{gap:6px}
+  .item{grid-template-columns:22px 52px minmax(0,1fr) auto;grid-template-areas:"box viz t pr";column-gap:10px;row-gap:0;padding:12px 12px;align-items:center;border-radius:12px}
+  .item .box{width:22px;height:22px;border-radius:6px}
+  .item .box svg{width:13px;height:13px}
+  .viz{width:52px;height:36px}
+  .c3d{left:4px;top:2px;width:44px;height:28px}
+  .c3d .fr::before{left:4px;top:5px;width:9px;height:9px;border-width:1.5px}
+  .c3d .fr::after{width:16px;height:3px;right:4px;top:7px;box-shadow:0 6px 0 -1px var(--soft),0 11px 0 -1px var(--soft)}
+  .c3d .bk::after{left:15px;top:6px;width:12px;height:12px;background-size:4px 4px}
+  .item .t{gap:4px}
+  .item .t b{font-size:15.5px;line-height:1.25}
+  .item:hover .t b{letter-spacing:.01em}
+  .item .t span{font-size:12.5px;line-height:1.35}
+  .item .pr{grid-area:pr;justify-self:end;text-align:end;display:block;font-size:15px}
+  .item .pr small{display:block;font-size:11px}
+  .rec{font-size:10px;padding:2px 6px;margin-bottom:2px}
+  .inpk{font-size:9.5px;padding:2px 7px;letter-spacing:.08em}
+  .inpk svg{width:9px;height:9px}
+  .note,.sec>p{font-size:13.5px;line-height:1.5}
+  .steps{gap:14px}.step b{font-size:26px}
+  .wk{padding:16px}.wk .sw{height:72px;margin:-16px -16px 4px;font-size:22px}.wk b{font-size:18px}.wk span{font-size:13.5px}
+  .contact{padding:26px 18px}.contact h2{font-size:26px}.msg{font-size:14px}
+  .btn{font-size:13px;padding:13px 16px;letter-spacing:.12em}
+  .bar{padding:8px 14px calc(8px + env(safe-area-inset-bottom,0px))}
+  .bar-in{flex-wrap:nowrap;gap:10px}
+  .tot{flex:1;min-width:0;column-gap:16px;row-gap:0}
+  .tot small{font-size:9px;letter-spacing:.16em}
+  .tot strong{font-size:19px}
+  .tot .save{flex-basis:100%;font-size:10.5px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bar .btn{padding:11px 12px;font-size:11.5px;letter-spacing:.08em}
+}
 </style>
 
 <div class="wrap">
