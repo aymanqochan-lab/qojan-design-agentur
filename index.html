@@ -543,10 +543,13 @@ p{margin:0}
     {id:'vid3', p:240}
   ];
   const MONTH=[{id:'care', p:39},{id:'vids', p:250}];
+  const KR={web:5500,book:1350,bookpro:2450,logo:2150,ci:4350,card:650,nfc:900,gbp:1000,vid3:2700,care:450,vids:2800};
   const PACKS={
-    basis:{price:550, once:['web','book'], month:['care']},
-    premium:{price:1150, once:['web','bookpro','card','nfc','gbp','vid3'], month:['care']}
+    basis:{price:550, kr:6150, once:['web','book'], month:['care']},
+    premium:{price:1150, kr:12900, once:['web','bookpro','card','nfc','gbp','vid3'], month:['care']}
   };
+  ONCE.concat(MONTH).forEach(i=>i.kr=KR[i.id]);
+  const pp=i=>L==='sv'?i.kr:i.p, pkp=k=>L==='sv'?PACKS[k].kr:PACKS[k].price, careP=()=>pp(MONTH.find(i=>i.id==='care'));
   // ---- Texte ----
   const T={
     de:{wl:'Referenzen',wh:'Meine Arbeiten',w1:'Restaurant · Lindesberg · Website mit Menü und Online-Bestellung',w2:'Restaurant & Bar · Lindesberg · Website mit Tischreservierung',w3:'Online-Shop für Baumaschinen · Schweden',wv:'Ansehen →',imp:'Impressum',dsg:'Datenschutz',agency:'Design Agentur',rec:'Empfohlen',mnote:'Wartung: bei Premium ab dem 4. Monat (3 Monate gratis), sonst ab dem 1. Monat. Video-Abo: ab dem 1. Monat. Monatlich kündbar.',lname:'IHR LOGO',h1:'Ihr Auftritt.<br><b>Ihre Wahl.</b>',lead:'Wählen Sie die Leistungen, die Ihr Geschäft braucht. Der Preis steht sofort unten.',svcline:'Logos · Webseiten · Corporate Identity',
@@ -570,8 +573,8 @@ p{margin:0}
     sv:{wl:'Referenser',wh:'Mina arbeten',w1:'Restaurang · Lindesberg · Webbplats med meny och onlinebeställning',w2:'Restaurang & bar · Lindesberg · Webbplats med bordsbokning',w3:'Webbshop för entreprenadmaskiner · Sverige',wv:'Visa →',imp:'Impressum',dsg:'Integritet',agency:'Designbyrå',rec:'Rekommenderas',mnote:'Underhåll: med Premium från månad 4 (3 månader gratis), annars från månad 1. Videoabonnemang: från månad 1. Kan sägas upp varje månad.',lname:'DIN LOGGA',h1:'Ditt varumärke.<br><b>Ditt val.</b>',lead:'Välj de tjänster ditt företag behöver. Priset syns direkt längst ner.',svcline:'Logotyper · Webbplatser · Grafisk profil',
       s1:'Steg 1',s1h:'Välj paket',nb:'Bas',db:'Webbplats upp till 4 sektioner (2 språk), onlinebokning, karta, WhatsApp, grundläggande Google-inställningar',pop:'Populär',np:'Premium',dp:'Upp till 5 sidor, bokning direkt på webbplatsen, visitkort, NFC-ställ, 3 AI-videor, Google-profil, 3 månaders underhåll gratis',nc:'Eget val',pc:'Ditt val',dc:'Bara de tjänster du verkligen behöver',
       s2:'Steg 2',s2h:'Anpassa tjänsterna',once:'Engångs',month:'Månadsvis',perm:'per månad',
-      dom:'Domänen (ca 15 € per år) och ett bokningsprogram som Fresha (ca 13 € per månad) står i ditt namn och betalas direkt till leverantören. Bilder, texter och tryckkostnader står du för.',
-      how:'Så kommer vi igång',howh:'I tre steg',st1:'Skicka ditt val och betala 50 % i förskott.',st2:'Klart på ca 2 veckor. 2 ändringsrundor gratis, därefter 45 € per timme.',st3:'Allt går live. Betala resterande 50 %.',
+      dom:'Domänen (ca 170 kr per år) och ett bokningsprogram som Fresha (ca 150 kr per månad) står i ditt namn och betalas direkt till leverantören. Bilder, texter och tryckkostnader står du för.',
+      how:'Så kommer vi igång',howh:'I tre steg',st1:'Skicka ditt val och betala 50 % i förskott.',st2:'Klart på ca 2 veckor. 2 ändringsrundor gratis, därefter 500 kr per timme.',st3:'Allt går live. Betala resterande 50 %.',
       sel:'Ditt val',ready:'Redo? Skicka mig ditt val.',copy:'Kopiera meddelandet',wa:'Skicka via WhatsApp',send:'Skicka ditt val',
       copied:'Kopierat. Skicka det nu till Ayman på WhatsApp.',marked:'Texten är markerad. Kopiera den.',save:'Paketpris: du sparar ',free:'3 månaders underhåll gratis',
       m1:'Hej Ayman, jag är intresserad av följande erbjudande',m0:'inget valt ännu',mo:'Engångs',mm:'Månadsvis',mq:'När kan vi prata?',mmon:'per månad',
@@ -663,7 +666,7 @@ p{margin:0}
   function startVid(b){if(noMotion.matches)return;const v=b.querySelector('.bgvid');if(!v)return;if(!v.src){v.src='https://videos.pexels.com/video-files/'+v.dataset.v+'.mp4';v.addEventListener('playing',()=>{if(b._vwant)b.classList.add('vidon')});v.addEventListener('error',()=>b.classList.remove('vidon'))}b._vwant=true;const pr=v.play();if(pr&&pr.catch)pr.catch(()=>{});if(v.readyState>2)b.classList.add('vidon')}
   function stopVid(b){b._vwant=false;b.classList.remove('vidon');const v=b.querySelector('.bgvid');if(v&&!v.paused)setTimeout(()=>{if(!b._vwant)v.pause()},500)}
   const sel=new Set(); let pack='premium'; let L='de';
-  const eur=n=>L==='en'?'€'+n.toLocaleString('en-GB'):n.toLocaleString(L==='sv'?'sv-SE':'de-DE')+' €';
+  const eur=n=>L==='en'?'€'+n.toLocaleString('en-GB'):L==='sv'?n.toLocaleString('sv-SE')+' kr':n.toLocaleString('de-DE')+' €';
   function mk(list,root){
     list.forEach(it=>{
       const b=document.createElement('button');b.type='button';b.className='item';b.id='it-'+it.id;b.dataset.id=it.id;b.setAttribute('aria-pressed','false');
@@ -732,7 +735,7 @@ p{margin:0}
       gml:'Ditt företag',gms:'★★★★★ 4,9 · Öppet nu',
       gx:'Google-sökning: din webbplats syns i sökresultaten. Google Maps: ditt företag syns på kartan, med öppettider, bilder och recensioner.',
       note:'Paketpriserna är engångspriser. Domänen och bokningsprogrammet står i ditt namn.',
-      basis:{h:'Det här får du med Bas',sub:'Klart på ca 2 veckor · Underhåll valfritt, 39 € per månad',list:[
+      basis:{h:'Det här får du med Bas',sub:'Klart på ca 2 veckor · Underhåll valfritt, 450 kr per månad',list:[
         ['Modern webbplats','Upp till 4 sektioner, på två språk. Ser perfekt ut i varje mobil.'],
         ['Onlinebokning','Kunderna bokar själva, dygnet runt. Varje ny bokning kommer direkt till din mobil.'],
         ['Kontakt, karta, WhatsApp','Kunderna ser var du finns och skriver till dig med ett klick.'],
@@ -746,7 +749,7 @@ p{margin:0}
         ['NFC-ställ för recensioner','Kunden håller mobilen mot stället och Google-recensionen öppnas. Fler bra recensioner tar dig högre upp på Google.'],
         ['Visitkortsdesign','Fram- och baksida, i samma stil som din webbplats. Trycket betalar du själv.'],
         ['3 AI-videor till starten','Korta videor för Instagram, TikTok och din webbplats.'],
-        ['3 månaders underhåll gratis','Felrättning, uppdateringar, upp till 1 timme ändringar per månad och hjälp via WhatsApp, utan kostnad. Därefter 39 € per månad, kan sägas upp varje månad.']]}},
+        ['3 månaders underhåll gratis','Felrättning, uppdateringar, upp till 1 timme ändringar per månad och hjälp via WhatsApp, utan kostnad. Därefter 450 kr per månad, kan sägas upp varje månad.']]}},
     ar:{choose:{basis:'اختر الأساسية',premium:'اختر المميزة'},back:'رجوع',close:'إغلاق',
       gs:'بحث Google',gm:'خرائط Google',gin:{basis:'في الأساسية',premium:'في المميزة'},gout:'في المميزة فقط',
       gsl:'اسم محلك – مدينتك',gsu:'www.your-business.de',gsd:'احجز موعدك أونلاين. ساعات العمل والأسعار والتواصل.',
@@ -805,7 +808,7 @@ p{margin:0}
   };
   const SI={basis:['web','cal','pin','search','redo'],premium:['layers','cal','pin','nfc','card','video','tool']};
   const svg=(k,cls)=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"'+(cls?' class="'+cls+'"':'')+'>'+IC[k]+'</svg>';
-  const pv=pk=>ONCE.filter(i=>PACKS[pk].once.includes(i.id)).reduce((a,i)=>a+i.p,0)+(pk==='premium'?3*39:0);
+  const pv=pk=>ONCE.filter(i=>PACKS[pk].once.includes(i.id)).reduce((a,i)=>a+pp(i),0)+(pk==='premium'?3*careP():0);
   const sheetBg=document.getElementById('sheet-bg');
   let lastFocus=null, sheetPk=null, closeT=null;
   const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -824,7 +827,7 @@ p{margin:0}
   function openSheet(pk){
     clearTimeout(closeT);
     const prev=sheetPk; sheetPk=pk;
-    const d=D[L], p=d[pk], t=T[L], price=PACKS[pk].price, val=pv(pk);
+    const d=D[L], p=d[pk], t=T[L], price=pkp(pk), val=pv(pk);
     const li=(it,i,ic,no)=>'<li'+(no?' class="no"':'')+' style="--d:'+(0.08+i*0.06).toFixed(2)+'s"><span class="ico" aria-hidden="true">'+svg(ic)+(no?'':'<span class="ok">'+svg('check')+'</span>')+'</span><div><b>'+esc(it[0])+'</b><span>'+esc(it[1])+'</span></div></li>';
     const items=p.list.map((it,i)=>li(it,i,SI[pk][i]||'check')).join('')+(p.no?li(p.no,p.list.length,'minus',true):'');
     const mapsIn=pk==='premium';
@@ -863,7 +866,7 @@ p{margin:0}
       const ob=seg.querySelector('[data-k="'+prev+'"]'),pl=seg.querySelector('.pill');
       pl.style.transition='none';pl.style.left=ob.offsetLeft+'px';pl.style.width=ob.offsetWidth+'px';void pl.offsetWidth;pl.style.transition='';
       requestAnimationFrame(()=>pill(seg));
-      countTo(document.getElementById('sh-price'),PACKS[prev].price,price);
+      countTo(document.getElementById('sh-price'),pkp(prev),price);
       const nb=seg.querySelector('[data-k="'+pk+'"]');if(nb)nb.focus({preventScroll:true});
     }
     seg.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.k;if(k===sheetPk)return;applyPack(k);openSheet(k)}));
@@ -893,12 +896,12 @@ p{margin:0}
     document.querySelectorAll('[data-i]').forEach(e=>{const v=t[e.dataset.i];if(v!=null)e.textContent=v});
     document.querySelectorAll('[data-ih]').forEach(e=>{e.innerHTML=t[e.dataset.ih]});
     document.querySelectorAll('.langs button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===L?'true':'false'));
-    document.getElementById('pp-basis').textContent=eur(PACKS.basis.price);
-    document.getElementById('pp-premium').textContent=eur(PACKS.premium.price);
+    document.getElementById('pp-basis').textContent=eur(pkp('basis'));
+    document.getElementById('pp-premium').textContent=eur(pkp('premium'));
     ONCE.concat(MONTH).forEach(it=>{
       const b=document.getElementById('it-'+it.id), tx=t.items[it.id], monthly=MONTH.includes(it);
       b.querySelector('.t b').textContent=tx[0];b.querySelector('.t span').textContent=tx[1];
-      const pr=b.querySelector('.pr');pr.textContent=eur(it.p);
+      const pr=b.querySelector('.pr');pr.textContent=eur(pp(it));
       if(monthly){const s=document.createElement('small');s.textContent=t.perm;pr.appendChild(s)}
     });
     const rc=document.querySelector('#it-care .rec'); if(rc) rc.textContent=t.rec;
@@ -911,9 +914,9 @@ p{margin:0}
     document.querySelectorAll('.pack').forEach(b=>b.setAttribute('aria-pressed',b.dataset.pk===pack?'true':'false'));
     document.querySelectorAll('.item').forEach(b=>{const tg=b.querySelector('.inpk');const on=PACKS[pack]&&PACKS[pack].once.includes(b.dataset.id);tg.hidden=!on;if(on)tg.innerHTML='<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>'+esc(D[L].gin[pack])});
     const o=ONCE.filter(i=>sel.has(i.id)), m=MONTH.filter(i=>sel.has(i.id));
-    const sum=o.reduce((a,i)=>a+i.p,0), msum=m.reduce((a,i)=>a+i.p,0);
+    const sum=o.reduce((a,i)=>a+pp(i),0), msum=m.reduce((a,i)=>a+pp(i),0);
     let once=sum, save='';
-    if(PACKS[pack]){once=PACKS[pack].price;const val=sum+(pack==='premium'&&sel.has('care')?3*39:0);if(val>once)save=t.save+eur(val-once)}
+    if(PACKS[pack]){once=pkp(pack);const val=sum+(pack==='premium'&&sel.has('care')?3*careP():0);if(val>once)save=t.save+eur(val-once)}
     if(pack==='premium'&&sel.has('care'))save+=(save?' · ':'')+t.free;
     const a=tOnce.textContent,b2=tMonth.textContent;
     tOnce.textContent=eur(once);tMonth.textContent=eur(msum);tSave.textContent=save;
