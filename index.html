@@ -510,62 +510,54 @@ p{margin:0}
     .dexh{max-width:860px;margin:48px auto;padding:24px 16px;font-family:inherit}
     .dexh h2{margin:0 0 6px;font-size:1.6rem}
     .dexh .sub{margin:0 0 18px;opacity:.8}
-    .dexh .langs{display:flex;gap:6px;margin-bottom:14px}
-    .dexh .langs button{border:1px solid currentColor;background:transparent;color:inherit;border-radius:999px;padding:4px 12px;cursor:pointer;font:inherit}
-    .dexh .langs button[aria-pressed=true]{background:currentColor}
-    .dexh .langs button[aria-pressed=true] span{filter:invert(1)}
     .dexh details{border:1px solid rgba(127,127,127,.35);border-radius:12px;padding:12px 16px;margin:8px 0}
     .dexh summary{cursor:pointer;font-weight:600}
     .dexh details p{margin:10px 0 2px;line-height:1.5}
     .dexh .ask{display:inline-block;margin-top:16px;padding:12px 20px;border-radius:999px;background:#25D366;color:#fff;text-decoration:none;font-weight:700}
     .dexh .note{font-size:.85rem;opacity:.7;margin-top:8px}
   </style>
-  <h2 id="dexh-t" data-de="Fragen? Dex hilft." data-en="Questions? Dex helps." data-sv="Frågor? Dex hjälper.">Fragen? Dex hilft.</h2>
-  <p class="sub" data-de="Dex ist der Assistent von QOJAN. Hier sind die häufigsten Antworten – Ihre eigene Frage beantwortet Ayman persönlich."
-     data-en="Dex is QOJAN's assistant. Here are the most common answers – Ayman answers your own question personally."
-     data-sv="Dex är QOJANs assistent. Här är de vanligaste svaren – din egen fråga besvarar Ayman personligen.">Dex ist der Assistent von QOJAN. Hier sind die häufigsten Antworten – Ihre eigene Frage beantwortet Ayman persönlich.</p>
-  <div class="langs" role="group" aria-label="Sprache">
-    <button type="button" data-l="de" aria-pressed="true"><span>DE</span></button>
-    <button type="button" data-l="en" aria-pressed="false"><span>EN</span></button>
-    <button type="button" data-l="sv" aria-pressed="false"><span>SV</span></button>
-  </div>
+  <h2 id="dexh-t">Fragen? Dex hilft.</h2>
+  <p class="sub" id="dexh-sub">Dex ist der Assistent von QOJAN. Hier finden Sie die häufigsten Antworten – Ihre eigene Frage beantwortet Ayman persönlich.</p>
   <div id="dexh-faq"></div>
-  <a class="ask" id="dexh-ask" href="https://wa.me/4915565770219" target="_blank" rel="noopener" data-de="Eigene Frage per WhatsApp stellen" data-en="Ask your own question on WhatsApp" data-sv="Ställ din fråga på WhatsApp">Eigene Frage per WhatsApp stellen</a>
-  <p class="note" data-de="Antwort meist am selben Tag." data-en="Usually answered the same day." data-sv="Svar oftast samma dag.">Antwort meist am selben Tag.</p>
+  <a class="ask" id="dexh-ask" href="https://wa.me/4915565770219" target="_blank" rel="noopener">Eigene Frage per WhatsApp stellen</a>
+  <p class="note" id="dexh-note">Antwort meist am selben Tag.</p>
   <script>
   (function(){
-    var F={
-     de:[["Was kostet eine Website?","Basis 550 € (Website mit Online-Terminbuchung), Premium 1.150 € (zusätzlich NFC, Visitenkarte, Videos und 3 Monate Wartung) oder Individuell – Sie wählen nur, was Sie brauchen. Der Preis erscheint oben sofort."],
-         ["Wie lange dauert es?","Etwa 2 Wochen nach Ihrer Auswahl und Anzahlung. Zwei Korrekturrunden sind inklusive."],
-         ["Wie bezahle ich?","50 % Anzahlung zum Start, die restlichen 50 % wenn die Website online ist."],
-         ["Gibt es laufende Kosten?","Die Domain (ca. 15 € pro Jahr) und das Buchungsprogramm Fresha (ca. 13 € pro Monat) laufen auf Ihren Namen und werden direkt beim Anbieter bezahlt."],
-         ["Was brauchen Sie von mir?","Ihr Logo (falls vorhanden), Fotos, Ihre Leistungen mit Preisen, Öffnungszeiten und Adresse. Fehlt etwas, helfen wir gern."],
-         ["Bekomme ich Impressum und Datenschutz?","Ja, beides gehört zu jeder Website für Deutschland dazu."]],
-     en:[["What does a website cost?","Basic €550 (website with online booking), Premium €1,150 (plus NFC, business card, videos and 3 months of maintenance) or Custom – you only pick what you need. The price shows up instantly above."],
-         ["How long does it take?","About 2 weeks after your choice and the deposit. Two rounds of corrections are included."],
-         ["How do I pay?","50% deposit to start, the other 50% when the website is online."],
-         ["Are there running costs?","The domain (about €15 per year) and the Fresha booking software (about €13 per month) are in your name and paid directly to the provider."],
-         ["What do you need from me?","Your logo (if you have one), photos, your services with prices, opening hours and address. If something is missing, we help."],
-         ["Do I get an imprint and privacy page?","Yes, both come with every website for Germany."]],
-     sv:[["Vad kostar en hemsida?","Bas 550 € (hemsida med onlinebokning), Premium 1 150 € (plus NFC, visitkort, videor och 3 månaders underhåll) eller Anpassat – du väljer bara det du behöver. Priset syns direkt ovan."],
-         ["Hur lång tid tar det?","Cirka 2 veckor efter ditt val och handpenningen. Två korrigeringsrundor ingår."],
-         ["Hur betalar jag?","50 % i handpenning vid start, resterande 50 % när hemsidan är online."],
-         ["Finns det löpande kostnader?","Domänen (ca 15 € per år) och bokningsprogrammet Fresha (ca 13 € per månad) står på ditt namn och betalas direkt till leverantören."],
-         ["Vad behöver ni från mig?","Din logga (om du har en), bilder, dina tjänster med priser, öppettider och adress. Saknas något hjälper vi till."],
-         ["Ingår Impressum och integritetspolicy?","Ja, båda ingår i varje hemsida för Tyskland."]]};
-    var Q={de:"Hallo Ayman, ich habe eine Frage zu einer Website: ",en:"Hi Ayman, I have a question about a website: ",sv:"Hej Ayman, jag har en fråga om en hemsida: "};
-    var root=document.getElementById("dex-hilfe");
-    function set(l){
-      if(!F[l]) l="de";
+    var L={
+     de:{t:"Fragen? Dex hilft.",s:"Dex ist der Assistent von QOJAN. Hier finden Sie die häufigsten Antworten – Ihre eigene Frage beantwortet Ayman persönlich.",a:"Eigene Frage per WhatsApp stellen",n:"Antwort meist am selben Tag.",q:"Hallo Ayman, ich habe eine Frage zu einer Website: ",
+       f:[["Was kostet eine Website?","Basis 550 €: Website mit bis zu 4 Bereichen (Deutsch + Englisch), Online-Terminbuchung, Karte, WhatsApp und Google-Grundeinstellungen. Premium 1.150 €: bis zu 5 Seiten, Buchung direkt auf der Website, Visitenkarte, NFC-Aufsteller, 3 KI-Videos, Google-Profil und 3 Monate Wartung gratis. Oder „Individuell“: Sie wählen nur, was Sie brauchen – der Preis steht sofort unten."],
+          ["Wie lange dauert es?","Etwa 2 Wochen. Zwei Korrekturrunden sind gratis, danach 45 € pro Stunde."],
+          ["Wie bezahle ich?","50 % Anzahlung zum Start, die restlichen 50 %, wenn alles online ist."],
+          ["Gibt es laufende Kosten?","Domain (ca. 15 € pro Jahr) und ein Buchungsprogramm wie Fresha (ca. 13 € pro Monat) laufen auf Ihren Namen und werden direkt an den Anbieter gezahlt. Wartung ist freiwillig: 39 € pro Monat, bei Premium die ersten 3 Monate gratis, monatlich kündbar."],
+          ["Was brauchen Sie von mir?","Ihr Logo (falls vorhanden), Fotos, Texte zu Ihren Leistungen und Preisen, Öffnungszeiten und Adresse. Fotos, Texte und Druckkosten kommen von Ihnen – bei der Auswahl helfen wir gern."],
+          ["Kann ich später etwas ändern lassen?","Ja. Mit der Wartung sind bis zu 1 Stunde Änderungen pro Monat inklusive (Texte, Bilder, Preise, Öffnungszeiten) plus Hilfe per WhatsApp. Neue Seiten oder Funktionen bekommen ein eigenes Angebot."]]},
+     en:{t:"Questions? Dex helps.",s:"Dex is QOJAN's assistant. Here are the most common answers – Ayman answers your own question personally.",a:"Ask your own question on WhatsApp",n:"Usually answered the same day.",q:"Hi Ayman, I have a question about a website: ",
+       f:[["What does a website cost?","Basic €550: website with up to 4 sections (German + English), online booking, map, WhatsApp and basic Google setup. Premium €1,150: up to 5 pages, booking directly on the website, business card, NFC stand, 3 AI videos, Google profile and 3 months of free maintenance. Or “Custom”: pick only what you need – the price shows up instantly at the bottom."],
+          ["How long does it take?","About 2 weeks. Two rounds of corrections are free, after that €45 per hour."],
+          ["How do I pay?","50% deposit to start, the remaining 50% when everything is online."],
+          ["Are there running costs?","The domain (about €15 per year) and a booking tool like Fresha (about €13 per month) are in your name and paid directly to the provider. Maintenance is optional: €39 per month, the first 3 months free with Premium, cancel any month."],
+          ["What do you need from me?","Your logo (if you have one), photos, texts about your services and prices, opening hours and address. Photos, texts and printing costs come from you – we are happy to help you choose."],
+          ["Can I get changes later?","Yes. Maintenance includes up to 1 hour of changes per month (texts, images, prices, opening hours) plus help on WhatsApp. New pages or features get their own quote."]]},
+     sv:{t:"Frågor? Dex hjälper.",s:"Dex är QOJANs assistent. Här hittar du de vanligaste svaren – din egen fråga besvarar Ayman personligen.",a:"Ställ din egen fråga på WhatsApp",n:"Svar oftast samma dag.",q:"Hej Ayman, jag har en fråga om en webbplats: ",
+       f:[["Vad kostar en webbplats?","Bas 6 150 kr: webbplats med upp till 4 sektioner (2 språk), onlinebokning, karta, WhatsApp och grundläggande Google-inställningar. Premium 12 900 kr: upp till 5 sidor, bokning direkt på webbplatsen, visitkort, NFC-ställ, 3 AI-videor, Google-profil och 3 månaders underhåll gratis. Eller ”Eget val”: välj bara det du behöver – priset syns direkt längst ner."],
+          ["Hur lång tid tar det?","Ungefär 2 veckor. Två ändringsrundor är gratis, därefter 500 kr per timme."],
+          ["Hur betalar jag?","50 % i förskott när vi startar, resterande 50 % när allt är live."],
+          ["Finns det löpande kostnader?","Domänen (ca 170 kr per år) och ett bokningsprogram som Fresha (ca 150 kr per månad) står i ditt namn och betalas direkt till leverantören. Underhåll är frivilligt: 450 kr per månad, med Premium är de första 3 månaderna gratis, kan sägas upp varje månad."],
+          ["Vad behöver ni från mig?","Din logga (om du har en), bilder, texter om dina tjänster och priser, öppettider och adress. Bilder, texter och tryckkostnader står du för – vi hjälper gärna till att välja."],
+          ["Kan jag få ändringar senare?","Ja. I underhållet ingår upp till 1 timmes ändringar per månad (texter, bilder, priser, öppettider) och hjälp via WhatsApp. Nya sidor eller funktioner får en separat offert."]]}};
+    function cur(){var l=(document.documentElement.lang||"").slice(0,2); if(L[l]) return l; var h=(location.hash||"").replace("#",""); return L[h]?h:"de";}
+    var last="";
+    function set(){
+      var k=cur(); if(k===last) return; last=k; var x=L[k];
+      document.getElementById("dexh-t").textContent=x.t; document.getElementById("dexh-sub").textContent=x.s;
+      document.getElementById("dexh-note").textContent=x.n;
+      var a=document.getElementById("dexh-ask"); a.textContent=x.a; a.href="https://wa.me/4915565770219?text="+encodeURIComponent(x.q);
       var faq=document.getElementById("dexh-faq"); faq.innerHTML="";
-      F[l].forEach(function(x){var d=document.createElement("details"),s=document.createElement("summary"),p=document.createElement("p");s.textContent=x[0];p.textContent=x[1];d.appendChild(s);d.appendChild(p);faq.appendChild(d);});
-      root.querySelectorAll("[data-"+l+"]").forEach(function(el){el.textContent=el.getAttribute("data-"+l);});
-      root.querySelectorAll(".langs button").forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-l")===l?"true":"false");});
-      document.getElementById("dexh-ask").href="https://wa.me/4915565770219?text="+encodeURIComponent(Q[l]);
+      x.f.forEach(function(p){var d=document.createElement("details"),s=document.createElement("summary"),t=document.createElement("p");s.textContent=p[0];t.textContent=p[1];d.appendChild(s);d.appendChild(t);faq.appendChild(d);});
     }
-    root.querySelectorAll(".langs button").forEach(function(b){b.addEventListener("click",function(){set(b.getAttribute("data-l"));});});
-    var h=(location.hash||"").replace("#",""); set(F[h]?h:"de");
-    window.addEventListener("hashchange",function(){var x=location.hash.replace("#","");if(F[x])set(x);});
+    set(); window.addEventListener("hashchange",set);
+    try{new MutationObserver(set).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});}catch(_){}
+    document.addEventListener("click",function(){setTimeout(set,50);},true);
   })();
   </script>
 </section>
@@ -585,7 +577,7 @@ p{margin:0}
     var tip=document.getElementById("dp-tip"), txt=document.getElementById("dp-txt");
     function place(){var bar=document.querySelector(".bar"),h=bar?bar.offsetHeight:0,b=document.getElementById("dp-btn");b.style.bottom=(h+16)+"px";tip.style.bottom=(h+76)+"px";}
     place(); window.addEventListener("resize",place); document.addEventListener("DOMContentLoaded",place); window.addEventListener("load",place); setTimeout(place,1500);
-    function lang(){var h=(location.hash||"").replace("#","");return T[h]?h:"de";}
+    function lang(){var l=(document.documentElement.lang||"").slice(0,2);if(T[l])return l;var h=(location.hash||"").replace("#","");return T[h]?h:"de";}
     function go(){var s=document.getElementById("dex-hilfe"); if(s){s.scrollIntoView({behavior:"smooth",block:"start"}); var d=s.querySelector("details"); if(d) d.open=true;} tip.classList.remove("on");}
     document.getElementById("dp-btn").addEventListener("click",go);
     txt.addEventListener("click",go);
