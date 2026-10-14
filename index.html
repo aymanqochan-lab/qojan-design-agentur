@@ -504,7 +504,73 @@ p{margin:0}
     </div>
   </section>
 
-  <section class="contact" id="kontakt">
+  <!-- QOJAN: "Dex hilft" Hilfe-Bereich (v1139, Claude 2026-10-14). Keine Server, kein Schlüssel, keine Cookies. -->
+<section id="dex-hilfe" class="dexh" aria-labelledby="dexh-t">
+  <style>
+    .dexh{max-width:860px;margin:48px auto;padding:24px 16px;font-family:inherit}
+    .dexh h2{margin:0 0 6px;font-size:1.6rem}
+    .dexh .sub{margin:0 0 18px;opacity:.8}
+    .dexh .langs{display:flex;gap:6px;margin-bottom:14px}
+    .dexh .langs button{border:1px solid currentColor;background:transparent;color:inherit;border-radius:999px;padding:4px 12px;cursor:pointer;font:inherit}
+    .dexh .langs button[aria-pressed=true]{background:currentColor}
+    .dexh .langs button[aria-pressed=true] span{filter:invert(1)}
+    .dexh details{border:1px solid rgba(127,127,127,.35);border-radius:12px;padding:12px 16px;margin:8px 0}
+    .dexh summary{cursor:pointer;font-weight:600}
+    .dexh details p{margin:10px 0 2px;line-height:1.5}
+    .dexh .ask{display:inline-block;margin-top:16px;padding:12px 20px;border-radius:999px;background:#25D366;color:#fff;text-decoration:none;font-weight:700}
+    .dexh .note{font-size:.85rem;opacity:.7;margin-top:8px}
+  </style>
+  <h2 id="dexh-t" data-de="Fragen? Dex hilft." data-en="Questions? Dex helps." data-sv="Frågor? Dex hjälper.">Fragen? Dex hilft.</h2>
+  <p class="sub" data-de="Dex ist der Assistent von QOJAN. Hier sind die häufigsten Antworten – Ihre eigene Frage beantwortet Ayman persönlich."
+     data-en="Dex is QOJAN's assistant. Here are the most common answers – Ayman answers your own question personally."
+     data-sv="Dex är QOJANs assistent. Här är de vanligaste svaren – din egen fråga besvarar Ayman personligen.">Dex ist der Assistent von QOJAN. Hier sind die häufigsten Antworten – Ihre eigene Frage beantwortet Ayman persönlich.</p>
+  <div class="langs" role="group" aria-label="Sprache">
+    <button type="button" data-l="de" aria-pressed="true"><span>DE</span></button>
+    <button type="button" data-l="en" aria-pressed="false"><span>EN</span></button>
+    <button type="button" data-l="sv" aria-pressed="false"><span>SV</span></button>
+  </div>
+  <div id="dexh-faq"></div>
+  <a class="ask" id="dexh-ask" href="https://wa.me/4915565770219" target="_blank" rel="noopener" data-de="Eigene Frage per WhatsApp stellen" data-en="Ask your own question on WhatsApp" data-sv="Ställ din fråga på WhatsApp">Eigene Frage per WhatsApp stellen</a>
+  <p class="note" data-de="Antwort meist am selben Tag." data-en="Usually answered the same day." data-sv="Svar oftast samma dag.">Antwort meist am selben Tag.</p>
+  <script>
+  (function(){
+    var F={
+     de:[["Was kostet eine Website?","Basis 550 € (Website mit Online-Terminbuchung), Premium 1.150 € (zusätzlich NFC, Visitenkarte, Videos und 3 Monate Wartung) oder Individuell – Sie wählen nur, was Sie brauchen. Der Preis erscheint oben sofort."],
+         ["Wie lange dauert es?","Etwa 2 Wochen nach Ihrer Auswahl und Anzahlung. Zwei Korrekturrunden sind inklusive."],
+         ["Wie bezahle ich?","50 % Anzahlung zum Start, die restlichen 50 % wenn die Website online ist."],
+         ["Gibt es laufende Kosten?","Die Domain (ca. 15 € pro Jahr) und das Buchungsprogramm Fresha (ca. 13 € pro Monat) laufen auf Ihren Namen und werden direkt beim Anbieter bezahlt."],
+         ["Was brauchen Sie von mir?","Ihr Logo (falls vorhanden), Fotos, Ihre Leistungen mit Preisen, Öffnungszeiten und Adresse. Fehlt etwas, helfen wir gern."],
+         ["Bekomme ich Impressum und Datenschutz?","Ja, beides gehört zu jeder Website für Deutschland dazu."]],
+     en:[["What does a website cost?","Basic €550 (website with online booking), Premium €1,150 (plus NFC, business card, videos and 3 months of maintenance) or Custom – you only pick what you need. The price shows up instantly above."],
+         ["How long does it take?","About 2 weeks after your choice and the deposit. Two rounds of corrections are included."],
+         ["How do I pay?","50% deposit to start, the other 50% when the website is online."],
+         ["Are there running costs?","The domain (about €15 per year) and the Fresha booking software (about €13 per month) are in your name and paid directly to the provider."],
+         ["What do you need from me?","Your logo (if you have one), photos, your services with prices, opening hours and address. If something is missing, we help."],
+         ["Do I get an imprint and privacy page?","Yes, both come with every website for Germany."]],
+     sv:[["Vad kostar en hemsida?","Bas 550 € (hemsida med onlinebokning), Premium 1 150 € (plus NFC, visitkort, videor och 3 månaders underhåll) eller Anpassat – du väljer bara det du behöver. Priset syns direkt ovan."],
+         ["Hur lång tid tar det?","Cirka 2 veckor efter ditt val och handpenningen. Två korrigeringsrundor ingår."],
+         ["Hur betalar jag?","50 % i handpenning vid start, resterande 50 % när hemsidan är online."],
+         ["Finns det löpande kostnader?","Domänen (ca 15 € per år) och bokningsprogrammet Fresha (ca 13 € per månad) står på ditt namn och betalas direkt till leverantören."],
+         ["Vad behöver ni från mig?","Din logga (om du har en), bilder, dina tjänster med priser, öppettider och adress. Saknas något hjälper vi till."],
+         ["Ingår Impressum och integritetspolicy?","Ja, båda ingår i varje hemsida för Tyskland."]]};
+    var Q={de:"Hallo Ayman, ich habe eine Frage zu einer Website: ",en:"Hi Ayman, I have a question about a website: ",sv:"Hej Ayman, jag har en fråga om en hemsida: "};
+    var root=document.getElementById("dex-hilfe");
+    function set(l){
+      if(!F[l]) l="de";
+      var faq=document.getElementById("dexh-faq"); faq.innerHTML="";
+      F[l].forEach(function(x){var d=document.createElement("details"),s=document.createElement("summary"),p=document.createElement("p");s.textContent=x[0];p.textContent=x[1];d.appendChild(s);d.appendChild(p);faq.appendChild(d);});
+      root.querySelectorAll("[data-"+l+"]").forEach(function(el){el.textContent=el.getAttribute("data-"+l);});
+      root.querySelectorAll(".langs button").forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-l")===l?"true":"false");});
+      document.getElementById("dexh-ask").href="https://wa.me/4915565770219?text="+encodeURIComponent(Q[l]);
+    }
+    root.querySelectorAll(".langs button").forEach(function(b){b.addEventListener("click",function(){set(b.getAttribute("data-l"));});});
+    var h=(location.hash||"").replace("#",""); set(F[h]?h:"de");
+    window.addEventListener("hashchange",function(){var x=location.hash.replace("#","");if(F[x])set(x);});
+  })();
+  </script>
+</section>
+
+<section class="contact" id="kontakt">
     <div class="rules2" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
     <p class="lbl" style="color:var(--white)" data-i="sel">Ihre Auswahl</p>
     <h2 data-i="ready">Bereit? Schicken Sie mir Ihre Wahl.</h2>
