@@ -583,6 +583,8 @@ p{margin:0}
   (function(){
     var T={de:"Hallo! Ich bin Dex. Fragen zu Preis oder Ablauf? Klicken Sie hier.",en:"Hi! I'm Dex. Questions about price or process? Click here.",sv:"Hej! Jag är Dex. Frågor om pris eller upplägg? Klicka här."};
     var tip=document.getElementById("dp-tip"), txt=document.getElementById("dp-txt");
+    function place(){var bar=document.querySelector(".bar"),h=bar?bar.offsetHeight:0,b=document.getElementById("dp-btn");b.style.bottom=(h+16)+"px";tip.style.bottom=(h+76)+"px";}
+    place(); window.addEventListener("resize",place);
     function lang(){var h=(location.hash||"").replace("#","");return T[h]?h:"de";}
     function go(){var s=document.getElementById("dex-hilfe"); if(s){s.scrollIntoView({behavior:"smooth",block:"start"}); var d=s.querySelector("details"); if(d) d.open=true;} tip.classList.remove("on");}
     document.getElementById("dp-btn").addEventListener("click",go);
