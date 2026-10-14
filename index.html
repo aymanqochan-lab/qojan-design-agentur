@@ -569,6 +569,32 @@ p{margin:0}
   })();
   </script>
 </section>
+<!-- QOJAN: Dex pop-up button (v1143, Claude 2026-10-14) - opens "Fragen? Dex hilft." -->
+<div id="dex-pop" aria-live="polite">
+  <style>
+    #dex-pop .dp-btn{position:fixed;right:16px;bottom:96px;z-index:60;border:0;border-radius:999px;padding:12px 16px;background:#25D366;color:#fff;font:inherit;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.35);cursor:pointer}
+    #dex-pop .dp-tip{position:fixed;right:16px;bottom:150px;z-index:60;max-width:240px;background:#fff;color:#222;border-radius:14px;padding:12px 34px 12px 14px;box-shadow:0 6px 18px rgba(0,0,0,.35);font-size:.95rem;line-height:1.4;display:none}
+    #dex-pop .dp-tip.on{display:block}
+    #dex-pop .dp-x{position:absolute;top:6px;right:8px;border:0;background:transparent;font-size:1.1rem;cursor:pointer;color:#555}
+  </style>
+  <div class="dp-tip" id="dp-tip"><button type="button" class="dp-x" id="dp-x" aria-label="Schließen">×</button><span id="dp-txt">Hallo! Ich bin Dex. Fragen zu Preis oder Ablauf? Klicken Sie hier.</span></div>
+  <button type="button" class="dp-btn" id="dp-btn">💬 Dex</button>
+  <script>
+  (function(){
+    var T={de:"Hallo! Ich bin Dex. Fragen zu Preis oder Ablauf? Klicken Sie hier.",en:"Hi! I'm Dex. Questions about price or process? Click here.",sv:"Hej! Jag är Dex. Frågor om pris eller upplägg? Klicka här."};
+    var tip=document.getElementById("dp-tip"), txt=document.getElementById("dp-txt");
+    function lang(){var h=(location.hash||"").replace("#","");return T[h]?h:"de";}
+    function go(){var s=document.getElementById("dex-hilfe"); if(s){s.scrollIntoView({behavior:"smooth",block:"start"}); var d=s.querySelector("details"); if(d) d.open=true;} tip.classList.remove("on");}
+    document.getElementById("dp-btn").addEventListener("click",go);
+    txt.addEventListener("click",go);
+    document.getElementById("dp-x").addEventListener("click",function(e){e.stopPropagation();tip.classList.remove("on");try{sessionStorage.setItem("dexPop","1");}catch(_){}});
+    var seen=false; try{seen=sessionStorage.getItem("dexPop")==="1";}catch(_){}
+    if(!seen) setTimeout(function(){txt.textContent=T[lang()];tip.classList.add("on");},8000);
+    window.addEventListener("hashchange",function(){txt.textContent=T[lang()];});
+  })();
+  </script>
+</div>
+
 
 <section class="contact" id="kontakt">
     <div class="rules2" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
