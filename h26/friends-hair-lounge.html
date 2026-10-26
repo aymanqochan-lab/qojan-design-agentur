@@ -235,6 +235,24 @@ html,body{overflow-x:clip;max-width:100%;overscroll-behavior-x:none}img{-webkit-
 .ba .dots{position:absolute;top:14px;right:14px;display:flex;gap:6px}.ba .dots b{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.45)}.ba .dots b.on{background:#fff}
 .ba .hint{font-size:13px;opacity:.6;margin-top:4px}
 @media(max-width:760px){.ba{grid-template-columns:1fr;grid-template-rows:auto 1fr;height:calc(100svh - 112px);margin-bottom:92px;gap:12px}.ba .steps{grid-template-columns:repeat(3,1fr);gap:8px}.ba .stp b{font-size:19px}.ba .stp span{display:none}.ba .frame{max-height:none}}
+
+.b2 .box{position:absolute;left:50%;top:56%;width:min(80vw,330px);height:min(50vw,200px);transform:translate(-50%,-30%);transform-style:preserve-3d;z-index:3}
+.b2 .front,.b2 .lidtop{background-color:#b98a55;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .32  0 0 0 0 .2  0 0 0 0 .08  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),linear-gradient(180deg,rgba(255,255,255,.10),rgba(0,0,0,.18));background-size:220px,100% 100%}
+.b2 .front{position:absolute;inset:0;border-radius:8px 8px 14px 14px;box-shadow:inset 0 -18px 30px rgba(60,30,5,.35),inset 0 2px 0 rgba(255,255,255,.25),0 40px 60px -10px rgba(0,0,0,.6);display:grid;place-items:center}
+.b2 .lid{position:absolute;left:-1%;right:-1%;bottom:99%;height:26%;transform-origin:50% 100%;transform-style:preserve-3d}
+.b2 .lidtop{position:absolute;inset:0;border-radius:16px 16px 4px 4px;box-shadow:inset 0 14px 24px rgba(255,255,255,.12),inset 0 -6px 12px rgba(60,30,5,.25);display:grid;place-items:center}
+.b2 .print{text-align:center;color:#3a2210;mix-blend-mode:multiply;opacity:.9;line-height:1}
+.b2 .print b{display:block;font:400 clamp(30px,9vw,46px)/.9 'Anton',Impact,sans-serif;letter-spacing:.02em}
+.b2 .print small{display:block;font:600 10px/1 'DM Sans',sans-serif;letter-spacing:.28em;margin-top:6px}
+.b2 .print i{display:block;width:44px;height:2px;background:#3a2210;margin:7px auto 0}
+.b2 .stack{position:absolute;left:50%;top:48%;width:min(84vw,360px);transform:translate(-50%,-50%);z-index:2;opacity:0}
+.b2 .stack .sz{position:relative;width:100%}
+.b2 .ly{position:absolute}.b2 .ly img{display:block;width:100%;height:auto;filter:drop-shadow(0 18px 22px rgba(0,0,0,.45))}
+.b2 .lb{position:absolute;top:50%;white-space:nowrap;font:600 12px 'DM Sans',sans-serif;color:#f6efe4;display:flex;align-items:center;gap:8px;opacity:0}
+.b2 .lb i{width:28px;height:1px;background:var(--acc)}.b2 .lb.r{left:100%;margin-left:6px}.b2 .lb.l{right:100%;margin-right:6px;flex-direction:row-reverse}
+@media(max-width:620px){.b2 .lb{position:static;justify-content:center;margin-top:4px}.b2 .lb i{display:none}}
+.b2 .kicker,.b2 .outro{position:absolute;left:0;right:0;text-align:center;z-index:4}.b2 .kicker{top:8%}.b2 .outro{bottom:7%;opacity:0}
+.b2 .outro b{display:block;font:400 clamp(34px,8vw,64px)/1 'Anton',sans-serif;color:var(--acc);text-transform:uppercase}
 </style></head>
 <body class="f-barber t-barber"><div id="curtain"><svg class="wm big" viewBox="0 0 320 80" role="img" aria-label="Friend&#x27;s Hair Lounge Logo"><text x="0" y="48" class="wmt" style="font-family:'Bebas Neue',serif;font-size:30px" textLength="316" lengthAdjust="spacingAndGlyphs">Friend&#x27;s Hair Lounge</text>
 <line class="wml" x1="0" y1="62" x2="58" y2="62"/><text x="64" y="66" class="wms" textLength="252" lengthAdjust="spacingAndGlyphs">BARBERSHOP · HAGEN-MITTE</text></svg></div><div class="prog"></div><div class="cur" aria-hidden="true"></div>
