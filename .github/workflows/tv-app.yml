@@ -1,0 +1,26 @@
+name: Build Grillköket TV app
+on:
+  push:
+    branches: [main]
+    paths: ['tv-app/**', '.github/workflows/tv-app.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: '17' }
+      - uses: gradle/actions/setup-gradle@v4
+        with: { gradle-version: '8.7' }
+      - name: Build APK
+        working-directory: tv-app
+        run: gradle assembleDebug --no-daemon
+      - name: Publish APK as a download
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          cp tv-app/app/build/outputs/apk/debug/app-debug.apk grillkoket-tv.apk
+          gh release delete tv-app --yes --cleanup-tag || true
+          gh release create tv-app grillkoket-tv.apk --title "Grillköket TV app" --notes "Fire TV app for the Weekboard offers."
