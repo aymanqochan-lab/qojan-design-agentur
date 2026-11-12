@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="sv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><title>Grillköket – Erbjudanden</title><link rel="icon" href="img/logo.png"><link rel="apple-touch-icon" href="img/logo.png">
+
+<style id="wb-css">
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Inter:wght@400;500;600&display=swap');
+:root{--bg:#f6f3ee;--panel:#fffdf9;--ink:#1d1a17;--mute:#6b645c;--line:#e5ddd2;--accent:#d9622b;--accent-ink:#fff;--good:#2f8a4f;--screen:#120f0d;--on-screen:#fff8f0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15120f;--panel:#1f1b17;--ink:#f4ede4;--mute:#a59a8e;--line:#352e27;--accent:#e8743a;--good:#5cc483}}
+:root[data-theme="dark"]{--bg:#15120f;--panel:#1f1b17;--ink:#f4ede4;--mute:#a59a8e;--line:#352e27;--accent:#e8743a;--good:#5cc483}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif}
+h1,h2,h3,.disp{font-family:'Bricolage Grotesque',Inter,sans-serif;letter-spacing:-.01em;margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+.btn{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-weight:600}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:focus-visible,.chip:focus-visible,.pick:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.studio{max-width:980px;margin:0 auto;padding:20px 16px 80px}
+.top{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}
+.top h1{font-size:28px}.sub{color:var(--mute);font-size:14px}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0}
+.step>header{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.num{width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:700;flex:none}
+.step h2{font-size:20px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--mute)}
+label.f input,label.f textarea,label.f select{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--ink);font-size:15px;min-width:0}
+textarea{resize:vertical;min-height:64px}
+.card{border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0;display:grid;grid-template-columns:200px 1fr;gap:14px}
+@media (max-width:640px){.card{grid-template-columns:1fr}}
+.thumb{aspect-ratio:16/9;border-radius:10px;background:var(--bg) center/cover;border:1px dashed var(--line);display:grid;place-items:center;color:var(--mute);font-size:13px;cursor:pointer;position:relative;overflow:hidden}
+.thumb input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{min-height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;font-size:13px}
+.chip.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.note{font-size:13px;color:var(--mute)}
+.ok{color:var(--good);font-weight:600}
+.bar{position:sticky;bottom:12px;margin-top:18px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 18px;display:flex;justify-content:space-between;align-items:center;gap:8px;box-shadow:0 8px 30px rgba(0,0,0,.15)}
+.howto{counter-reset:s;list-style:none;padding:0;margin:0}
+.howto li{counter-increment:s;padding:8px 0 8px 40px;position:relative;border-top:1px solid var(--line)}
+.howto li:before{content:counter(s);position:absolute;left:0;top:8px;width:28px;height:28px;border-radius:50%;border:1px solid var(--accent);color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:13px}
+.x{background:none;border:0;color:var(--mute);cursor:pointer;font-size:13px;text-decoration:underline}
+/* TV */
+.nophoto .photo{background:radial-gradient(circle at 75% 40%,#5a2410 0%,#1a120d 60%)!important}.nophoto .shade{background:none}.nophoto .offer{width:calc(var(--u)*70)}
+.week{position:absolute;right:calc(var(--u)*3);top:12vh;width:calc(var(--u)*36);background:rgba(255,248,240,.06);border:1px solid rgba(255,248,240,.14);border-radius:calc(var(--u)*1.4);padding:calc(var(--u)*1.6) calc(var(--u)*1.8);color:#fff8f0}.week .wt{font-family:'Bricolage Grotesque';font-weight:800;font-size:calc(var(--u)*1.9);margin-bottom:.8vw;color:#ffb98a}.wd{display:grid;grid-template-columns:calc(var(--u)*5) 1fr;gap:calc(var(--u)*1);padding:.7vw 0;border-top:1px solid rgba(255,248,240,.1);font-size:calc(var(--u)*1.15);opacity:.7}.wd.now{opacity:1;color:#fff;font-size:calc(var(--u)*1.3)}.wd.now b{color:#e8743a}.badge{display:inline-flex;align-items:center;gap:.6em;background:rgba(232,116,58,.16);border:1px solid rgba(232,116,58,.5);color:#ffb98a;border-radius:999px;padding:.35em 1em;font-size:calc(var(--u)*1.15);font-weight:600;width:max-content}
+.tv{--u:min(1vw,1.7778vh);position:fixed;inset:0;background:var(--screen);color:var(--on-screen);overflow:hidden;font-size:calc(var(--u)*1.6)}
+:root[data-theme="light"] .tv{--screen:#f7f1e8;--on-screen:#1d1a17}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+.slide.show{opacity:1}
+.photo{position:absolute;inset:0;background:center/cover}
+.slide.show .photo{animation:kb 14s ease-out forwards}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.12) translate(-1%,-1%)}}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,8,6,.92) 0%,rgba(10,8,6,.7) 38%,rgba(10,8,6,0) 70%)}
+.offer{position:absolute;left:calc(var(--u)*5);bottom:9vh;width:calc(var(--u)*46);color:#fff8f0}
+.tag{display:inline-flex;align-items:center;gap:.6em;font-size:1.05em;letter-spacing:.14em;text-transform:uppercase;color:#ffb98a;font-weight:600}
+.offer h1{font-size:calc(var(--u)*5.4);line-height:.98;margin:.35em 0 .3em;font-weight:800}
+.offer p{font-size:calc(var(--u)*1.5);opacity:.88;margin:0 0 1.2em;max-width:calc(var(--u)*38)}
+.price{display:inline-flex;align-items:baseline;gap:.25em;background:#e8743a;color:#fff;border-radius:calc(var(--u)*1.2);padding:.35em .8em;font-family:'Bricolage Grotesque';font-weight:800;font-size:calc(var(--u)*3.6);transform-origin:left center}
+.slide.show .price{animation:pop .8s .5s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+.price small{font-size:.45em;font-weight:600}
+.when{margin-left:1em;font-size:calc(var(--u)*1.25);opacity:.85}
+.rise{opacity:0;transform:translateY(2vh)}
+.slide.show .rise{animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+.slide.show .rise.d1{animation-delay:.15s}.slide.show .rise.d2{animation-delay:.3s}.slide.show .rise.d3{animation-delay:.45s}.slide.show .rise.d4{animation-delay:.6s}
+@keyframes rise{to{opacity:1;transform:none}}
+.pin{position:absolute;right:calc(var(--u)*4);bottom:8vh;display:flex;align-items:center;gap:calc(var(--u)*1);background:rgba(18,15,13,.78);backdrop-filter:blur(8px);color:#fff8f0;border-radius:calc(var(--u)*1.4);padding:calc(var(--u)*1) calc(var(--u)*1.4)}
+.pin b{font-family:'Bricolage Grotesque';font-size:calc(var(--u)*2.3)}
+.qr{background:#fff;padding:.6vw;border-radius:.8vw;line-height:0}
+.qr img,.qr canvas{width:100%!important;height:auto!important}
+.info{display:grid;grid-template-columns:38% 1fr;height:100%}
+.info .side{position:relative;overflow:hidden}
+.info .side .photo{filter:saturate(1.1)}
+.info .main{padding:9vh calc(var(--u)*5) 11vh;display:flex;flex-direction:column;justify-content:center;gap:1.6vh;min-height:0;overflow:hidden}
+.info h2{font-size:calc(var(--u)*4);font-weight:800;line-height:1}
+.dist{display:flex;align-items:baseline;gap:calc(var(--u)*1);flex-wrap:wrap}
+.dist .big{font-size:min(calc(var(--u)*6),12vh)!important;font-family:'Bricolage Grotesque';font-weight:800;font-size:calc(var(--u)*7);color:var(--accent);line-height:.9}
+.dist .lbl{font-size:calc(var(--u)*1.6);opacity:.85}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1.4vh calc(var(--u)*3);font-size:calc(var(--u)*1.35)}
+.facts div span{display:block;font-size:.8em;opacity:.6;text-transform:uppercase;letter-spacing:.12em}
+.open{color:#5cc483;font-weight:600}.closed{color:#ff8a7a;font-weight:600}
+.review{font-size:calc(var(--u)*1.35)!important;border-left:.35vw solid var(--accent);padding:.4vh 0 .4vh calc(var(--u)*1.6);font-size:calc(var(--u)*1.55);font-style:italic;max-width:calc(var(--u)*46)}
+.review cite{display:block;font-style:normal;font-size:.75em;opacity:.65;margin-top:.5em}
+.stars{color:#f5b301;letter-spacing:.15em;font-style:normal}
+.qrbox{display:flex;align-items:center;gap:calc(var(--u)*1.4)}
+.qrbox .qr{width:min(calc(var(--u)*9),16vh);flex:none}
+.qrbox p{margin:0;font-size:calc(var(--u)*1.35);max-width:calc(var(--u)*20)}
+.qrbox b{font-size:calc(var(--u)*1.7);display:block}
+.hud{position:absolute;top:3vh;right:calc(var(--u)*3);left:calc(var(--u)*3);display:flex;justify-content:space-between;align-items:center;z-index:5;font-size:calc(var(--u)*1.15);pointer-events:none}
+.brand{display:flex;align-items:center;gap:.7vw;background:rgba(18,15,13,.6);color:#fff8f0;padding:.5vw calc(var(--u)*1);border-radius:999px;backdrop-filter:blur(6px)}
+.brand .lg{width:calc(var(--u)*3.2);height:calc(var(--u)*3.2);border-radius:50%;margin:-.3vw 0 -.3vw -.6vw}.brand{font-size:calc(var(--u)*1.25)}
+.dot{width:.7vw;height:.7vw;border-radius:50%;background:#e8743a;animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.peak{background:#e8743a;color:#fff;padding:.5vw calc(var(--u)*1.2);border-radius:999px;font-weight:600}
+.prog{position:absolute;left:0;bottom:0;height:.5vh;background:var(--accent);z-index:6}
+.picker{min-height:100vh;display:grid;place-items:center;text-align:center;padding:4vh calc(var(--u)*4)}
+.picker h1{font-size:calc(var(--u)*4)}.picker p{font-size:calc(var(--u)*1.6);opacity:.75}
+.pick{display:block;width:min(calc(var(--u)*60),700px);margin:1.4vh auto;padding:2.2vh;border-radius:16px;border:2px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:inherit;font-size:calc(var(--u)*2);cursor:pointer}
+.pick:focus,.pick:hover{border-color:var(--accent);background:rgba(232,116,58,.2)}
+.tvctl{position:absolute;bottom:2vh;left:50%;transform:translateX(-50%);z-index:9;display:flex;gap:8px}
+@media (prefers-reduced-motion:reduce){.slide.show .photo,.slide.show .price,.slide.show .rise,.dot{animation:none!important;opacity:1;transform:none}}
+</style>
+</head><body>
+<div id="app"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script id="wb-main">
+(function(){
+var REPO='aymanqochan-lab/qojan-design-agentur',DIR='tv/',S;
+function loadData(){return fetch('data.json?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()})}
+loadData().then(function(d){S=d;start()}).catch(function(){document.getElementById('app').innerHTML='<div style="padding:8vh 6vw;font:24px Inter,sans-serif;color:#f4ede4;background:#15120f;min-height:100vh">Kunde inte ladda erbjudandena. Kontrollera internet och ladda om.</div>'});
+function start(){
+var app=document.getElementById('app');
+var DAYS_EN=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+var T={sv:{days:['Sön','Mån','Tis','Ons','Tor','Fre','Lör'],today:'Idag',from:'från dig',walk:'min promenad',drive:'min med bil',open:'Öppet nu',closes:'stänger',closed:'Stängt just nu',opens:'öppnar',addr:'Adress',phone:'Telefon',hours:'Öppettider',status:'Just nu',scan:'Skanna – hitta hit',scanSub:'Vägbeskrivning i Google Maps direkt i mobilen',findus:'Hitta hit',lunch:'Dagens lunch',veg:'Veckans vegetariska',incl:'Inkl. sallad, bröd och dryck',week:'Veckans lunch',pick:'Vilken skärm är det här?',pickSub:'Välj en gång – tv:n kommer ihåg det.',away:'bort',guests:'Vad gästerna säger'},
+en:{days:DAYS_EN,today:'Today',from:'from you',walk:'min walk',drive:'min by car',open:'Open now',closes:'closes',closed:'Closed now',opens:'opens',addr:'Address',phone:'Phone',hours:'Hours',status:'Right now',scan:'Scan to find us',scanSub:'Directions in Google Maps, straight to your phone',findus:'Find us',lunch:"Today's lunch",veg:'Vegetarian this week',incl:'Incl. salad, bread and drink',week:'Lunch this week',pick:'Which screen is this?',pickSub:'Pick once – the TV remembers.',away:'away',guests:'What guests say'}};
+function L(){return T.sv}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+function applyTheme(){document.documentElement.setAttribute('data-theme',S.theme||'dark')}
+applyTheme();
+try{if(S.rest.logo){['icon','apple-touch-icon'].forEach(function(r){var l=document.createElement('link');l.rel=r;l.href=S.rest.logo;document.head.appendChild(l)})}}catch(e){}
+function mins(h){var p=String(h||'0:0').split(':');return (+p[0]||0)*60+(+p[1]||0)}
+function inWindow(days,start,end,d){var n=d.getHours()*60+d.getMinutes(),s=mins(start),e=mins(end),day=d.getDay();
+ if(s===e)return days.indexOf(day)>-1;
+ if(e>s)return days.indexOf(day)>-1&&n>=s&&n<e;
+ if(n>=s)return days.indexOf(day)>-1; return days.indexOf((day+6)%7)>-1&&n<e}
+function km(a,b,c,d){var R=6371,r=Math.PI/180,x=Math.sin((c-a)*r/2),y=Math.sin((d-b)*r/2);var h=x*x+Math.cos(a*r)*Math.cos(c*r)*y*y;return R*2*Math.atan2(Math.sqrt(h),Math.sqrt(1-h))}
+function distText(screen){if(!screen||screen.lat==null)return null;var k=km(screen.lat,screen.lng,S.rest.lat,S.rest.lng);
+ var big=k<1?Math.round(k*1000/10)*10+' m':(k<10?k.toFixed(1).replace('.',','):Math.round(k))+' km';
+ var t=k<1.3?Math.max(2,Math.round(k*1.25/4.8*60))+' '+L().walk:Math.max(3,Math.round(k*1.3/45*60+2))+' '+L().drive;return {big:big,time:t,km:k}}
+function mapsUrl(){return 'https://www.google.com/maps/dir/?api=1&destination='+S.rest.lat+','+S.rest.lng}
+function openStatus(d){var h=S.rest.hours[d.getDay()];var l=L();if(!h)return {open:false,txt:l.closed};
+ var n=d.getHours()*60+d.getMinutes();if(n>=mins(h[0])&&n<mins(h[1]))return {open:true,txt:l.open+' · '+l.closes+' '+h[1]};
+ return {open:false,txt:l.closed+(n<mins(h[0])?' · '+l.opens+' '+h[0]:'')}}
+function hoursText(){var l=L(),out=[],H=S.rest.hours,order=[1,2,3,4,5,6,0],i=0;
+ while(i<7){var d=order[i],j=i;while(j+1<7&&JSON.stringify(H[order[j+1]])===JSON.stringify(H[d]))j++;
+  var lbl=l.days[d]+(j>i?'–'+l.days[order[j]]:'');out.push(lbl+' '+(H[d]?H[d][0].replace(':00','')+'–'+H[d][1].replace(':00',''):'—'));i=j+1}
+ return out.join(' · ')}
+function daysText(o){var l=L();if(o.days.length===7)return l.days===T.sv.days?'Alla dagar':'Every day';
+ if(o.days.join()==='1,2,3,4,5')return l.days[1]+'–'+l.days[5];return o.days.map(function(d){return l.days[d]}).join(', ')}
+function priceHTML(p){var s=String(p||'').trim();if(!s)return '';return esc(s)+'<small>kr</small>'}
+var qrCache={};
+function qrInto(el,size){if(!el)return;var url=mapsUrl();if(typeof QRCode==='undefined'){el.innerHTML='<div style="color:#000;font-size:12px;padding:8px;line-height:1.3">'+esc(S.rest.street)+'</div>';return}
+ el.innerHTML='';new QRCode(el,{text:url,width:size,height:size,colorDark:'#120f0d',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M})}
+
+/* ---------- TV PLAYER ---------- */
+var tvTimer=null,clockTimer=null;
+function currentScreen(){var id=null;var m=(location.hash||'').match(/screen=([\w-]+)/);if(m)id=m[1];
+ if(!id)id=store('wb-screen');var s=S.screens.filter(function(x){return x.id===id})[0];
+ if(!s&&S.screens.length===1)s=S.screens[0];return s||null}
+function isPeak(sc,d){return !!(sc&&sc.peak&&sc.peak.on&&inWindow(sc.peak.days,sc.peak.start,sc.peak.end,d))}
+function activeOffers(d,sc){if(sc&&sc.peak&&sc.peak.on&&sc.peak.only&&!isPeak(sc,d))return [];
+ return S.offers.filter(function(o){return o.image||o.title}).filter(function(o){return inWindow(o.days,o.start,o.end,d)})}
+var geo=null;try{var g=JSON.parse(store('wb-geo')||'null');if(g&&g.lat)geo=g}catch(e){}
+function askGeo(){try{if(geo||!navigator.geolocation)return;navigator.geolocation.getCurrentPosition(function(p){geo={lat:p.coords.latitude,lng:p.coords.longitude};store('wb-geo',JSON.stringify(geo))},function(){},{timeout:15000,maximumAge:86400000})}catch(e){}}
+function startTV(forcePick){stopTV();document.body.style.overflow='hidden';
+ var sc=forcePick?null:currentScreen();if(!sc||sc.lat==null){askGeo();if(geo){sc=Object.assign({},sc||{name:'',peak:{}},{lat:geo.lat,lng:geo.lng})}}
+ if(!sc&&S.screens.length>1){renderPicker();return}
+ var l=L();
+ app.innerHTML='<div class="tv" id="tv"><div class="hud"><div class="brand">'+(S.rest.logo?'<img src="'+S.rest.logo+'" alt="" class="lg">':'<span class="dot"></span>')+'<span>'+esc(S.rest.name)+'</span></div><div class="row" style="gap:calc(var(--u)*1)"><span id="peak"></span><span class="brand" id="clock"></span></div></div><div id="stage"></div><div class="prog" id="prog"></div>'+(editor?'<div class="tvctl"><button class="btn pri" id="back">Back to studio</button>'+(S.screens.length>1?'<button class="btn" id="chg">Change screen</button>':'')+'</div>':'')+'</div>';
+ if(editor){document.getElementById('back').onclick=function(){stopTV();renderStudio()};var c=document.getElementById('chg');if(c)c.onclick=function(){startTV(true)}}
+ var stage=document.getElementById('stage'),prog=document.getElementById('prog'),i=0,queue=[],last='';
+ function tick(){var d=new Date();document.getElementById('clock').textContent=d.toLocaleTimeString('sv-SE',{hour:'2-digit',minute:'2-digit'});
+  var pk=isPeak(sc,d);document.getElementById('peak').innerHTML=pk&&sc.peak.line?'<span class="peak">'+esc(sc.peak.line)+'</span>':''}
+ tick();clockTimer=setInterval(tick,15000);
+ function build(){var d=new Date(),offs=activeOffers(d,sc),seq=[];
+  offs.forEach(function(o,k){seq.push({t:'offer',o:o});seq.push({t:'info',o:o,next:offs[(k+1)%offs.length]})});
+  if(!seq.length)seq.push({t:'info',o:S.offers[0],idle:true});return seq}
+ function show(){queue=build();var key=queue.map(function(q){return q.t+(q.o&&q.o.id)}).join();if(key!==last){i=0;last=key}
+  var it=queue[i%queue.length],dist=distText(sc),d=new Date(),secs;
+  var el=document.createElement('div');el.className='slide';
+  if(it.t==='offer'&&it.o.type==='week'){var o=it.o,td=d.getDay();secs=Math.max(10,+o.seconds||12);el.classList.add('nophoto');var wk=o.week||{};
+   el.innerHTML='<div class="photo"'+(o.image?' style="background-image:url('+o.image+')"':'')+'></div><div class="shade" style="background:linear-gradient(90deg,rgba(10,8,6,.94),rgba(10,8,6,.75))"></div><div class="offer" style="width:calc(var(--u)*52)">'+(S.rest.logo?'<img class="rise" src="'+S.rest.logo+'" alt="" style="width:calc(var(--u)*10);height:calc(var(--u)*10);border-radius:50%;margin-bottom:2.5vh;display:block;box-shadow:0 0 0 .3vw rgba(232,116,58,.55),0 0 calc(var(--u)*4) rgba(232,116,58,.25)">':'')+'<div class="tag rise">'+esc(l.lunch)+' · '+esc(l.days[td])+' · '+esc(o.start)+'–'+esc(o.end)+'</div><h1 class="rise d1" style="font-size:calc(var(--u)*4.6)">'+esc(wk[td]||o.title||'')+'</h1>'+(o.veg?'<p class="rise d2">'+esc(l.veg)+': '+esc(o.veg)+'</p>':'')+(String(o.price||'').trim()?'<div class="rise d3"><span class="price">'+priceHTML(o.price)+'</span><span class="when">'+esc(l.incl)+'</span></div>':'')+'</div>'+
+   '<div class="week rise d2"><div class="wt">'+esc(l.week)+(o.wnum?' '+esc(o.wnum):'')+'</div>'+[1,2,3,4,5].map(function(x){return '<div class="wd'+(x===td?' now':'')+'"><b>'+esc(l.days[x])+'</b><span>'+esc(wk[x]||'')+'</span></div>'}).join('')+'</div>'+
+   '<div class="pin rise d4"><div>'+(dist?'<b>'+esc(dist.big)+'</b><div style="font-size:calc(var(--u)*1.1);opacity:.8">'+esc(dist.time)+'</div>':'<b>'+esc(l.findus)+'</b>')+'</div><div class="qr" style="width:calc(var(--u)*6)" data-qr="1"></div></div>'}
+  else if(it.t==='offer'){var o=it.o;secs=Math.max(4,+o.seconds||8);if(!o.image)el.classList.add('nophoto');
+   el.innerHTML='<div class="photo" style="background-image:url('+(o.image||'')+')"></div><div class="shade"></div><div class="offer"><div class="tag rise">'+esc(o.kicker||l.today)+' · '+esc(o.start)+'–'+esc(o.end)+'</div><h1 class="rise d1">'+esc(o.title)+'</h1><p class="rise d2">'+esc(o.body)+'</p><div class="rise d3">'+(String(o.price||'').trim()?'<span class="price">'+priceHTML(o.price)+'</span>':'')+'<span class="when">'+esc(daysText(o))+'</span></div></div>'+
+   '<div class="pin rise d4"><div>'+(dist?'<b>'+esc(dist.big)+'</b><div style="font-size:calc(var(--u)*1.1);opacity:.8">'+esc(dist.time)+'</div>':'<b>'+esc(l.findus)+'</b><div style="font-size:calc(var(--u)*1.1);opacity:.8">'+esc(S.rest.street)+'</div>')+'</div><div class="qr" style="width:calc(var(--u)*7)" data-qr="1"></div></div>'}
+  else{secs=it.idle?20:10;var o2=it.o||{},st=openStatus(d),rv=S.rest.reviews.length?S.rest.reviews[(Math.floor(i/2))%S.rest.reviews.length]:null;
+   el.innerHTML='<div class="info"><div class="side">'+((S.rest.photo||o2.image)?'<div class="photo" style="background-image:url('+(S.rest.photo||o2.image)+')"></div>':'<div class="photo" style="background:radial-gradient(circle at 30% 30%,#e8743a,#3a170a)"></div>')+'</div><div class="main">'+
+   '<div class="tag rise">'+esc(l.findus)+'</div><h2 class="rise d1" style="display:flex;align-items:center;gap:calc(var(--u)*1.2)">'+(S.rest.logo?'<img src="'+S.rest.logo+'" alt="" style="width:calc(var(--u)*6);height:calc(var(--u)*6);border-radius:50%;box-shadow:0 0 0 .25vw rgba(232,116,58,.6)">':'')+esc(S.rest.name)+'</h2>'+(S.rest.award?'<div class="badge rise d1">★ '+esc(S.rest.award)+'</div>':'')+
+   (dist?'<div class="dist rise d2"><span class="big">'+esc(dist.big)+'</span><span class="lbl">'+esc(l.from)+' · '+esc(dist.time)+'</span></div>':'')+
+   '<div class="facts rise d2"><div><span>'+l.addr+'</span>'+esc(S.rest.street)+', '+esc(S.rest.city)+'</div><div><span>'+l.status+'</span><b class="'+(st.open?'open':'closed')+'">'+esc(st.txt)+'</b></div><div><span>'+l.phone+'</span>'+esc(S.rest.phone)+'</div><div><span>'+l.hours+'</span>'+esc(hoursText())+'</div></div>'+
+   (rv?'<blockquote class="review rise d3" style="margin:0"><span class="stars">★★★★★</span><br>“'+esc(rv.text)+'”<cite>'+esc(rv.from)+'</cite></blockquote>':'')+
+   '<div class="qrbox rise d4"><div class="qr" data-qr="1"></div><p><b>'+esc(l.scan)+'</b>'+esc(l.scanSub)+'</p></div></div></div>'}
+  stage.appendChild(el);el.querySelectorAll('[data-qr]').forEach(function(q){qrInto(q,220)});
+  requestAnimationFrame(function(){requestAnimationFrame(function(){el.classList.add('show')})});
+  var old=stage.children;for(var k=0;k<old.length-1;k++){(function(n){n.classList.remove('show');setTimeout(function(){n.remove()},1100)})(old[k])}
+  prog.style.transition='none';prog.style.width='0';requestAnimationFrame(function(){requestAnimationFrame(function(){prog.style.transition='width '+secs+'s linear';prog.style.width='100%'})});
+  i++;tvTimer=setTimeout(show,secs*1000)}
+ show()}
+function stopTV(){clearTimeout(tvTimer);clearInterval(clockTimer);document.body.style.overflow=''}
+function renderPicker(){var l=L();app.innerHTML='<div class="tv"><div class="picker"><div><h1 class="disp">'+esc(l.pick)+'</h1><p>'+esc(l.pickSub)+'</p>'+S.screens.map(function(s){return '<button class="pick" data-id="'+esc(s.id)+'">'+esc(s.name)+'</button>'}).join('')+'</div></div></div>';
+ app.querySelectorAll('.pick').forEach(function(b,k){if(!k)b.focus();b.onclick=function(){store('wb-screen',b.getAttribute('data-id'));location.hash='screen='+b.getAttribute('data-id');startTV()}})}
+
+/* ---------- STUDIO ---------- */
+var editor=/studio/.test(location.hash),dirty=false;function tok(){return store('wb-token')||''}
+function uid(){return Math.random().toString(36).slice(2,9)}
+function parseMaps(s){s=String(s||'');var m=s.match(/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/)||s.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/)||s.match(/[?&](?:q|query|destination|ll)=(-?\d+\.\d+),\s*(-?\d+\.\d+)/)||s.match(/^\s*(-?\d+\.\d+)\s*,\s*(-?\d+\.\d+)\s*$/);return m?{lat:+m[1],lng:+m[2]}:null}
+function compress(file){return new Promise(function(res,rej){var u=URL.createObjectURL(file),im=new Image();im.onload=function(){var mx=1400,sc=Math.min(1,mx/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*sc);c.height=Math.round(im.height*sc);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);res(c.toDataURL('image/jpeg',.74))};im.onerror=function(){rej(new Error('bad'))};im.src=u})}
+function field(label,path,val,type,extra){return '<label class="f">'+label+(type==='area'?'<textarea data-path="'+path+'">'+esc(val)+'</textarea>':'<input data-path="'+path+'" type="'+(type||'text')+'" value="'+esc(val)+'" '+(extra||'')+'>')+'</label>'}
+function get(path){return path.split('.').reduce(function(o,k){return o==null?o:o[k]},S)}
+function set(path,v){var ks=path.split('.'),o=S;for(var i=0;i<ks.length-1;i++)o=o[ks[i]];o[ks[ks.length-1]]=v;markDirty()}
+function markDirty(){dirty=true;var s=document.getElementById('savestate');if(s){s.textContent=U('unsaved');s.className='note'}}
+var UI={en:{sub:'Edit on your phone or computer. Press Save and every TV updates.',theme_l:'Light look',theme_d:'Dark look',lang:'Svenska',prev:'See the TV',
+s1:'Your offers',s1n:'A photo, a name and a price. Pick the days and hours it shows.',photo:'Tap to add photo',rm:'Remove',title:'Dish name',price:'Price (kr)',desc:'Short description',days:'Shows on',from:'From',until:'Until',more:'More options',label:'Small top label',secs:'Seconds on screen',add:'+ Add offer',newo:'New dish',
+s2:'Where the TVs are',s2n:'Add each place that has a TV. Paste its Google Maps link and the TV shows the real distance to the restaurant.',sname:'Place name (e.g. Lindesberg Bowling)',smaps:'Google Maps link of the place',smapsPh:'Paste link here',locok:'Location found — the TV will say',locno:'No location yet — the TV shows the address instead.',busy:'Show more when it’s busy',busyOnly:'Only show during busy hours',bfrom:'Busy from',banner:'Banner when busy',adds:'+ Add place',news:'New place',
+s3:'Restaurant info',s3n:'Shown between photos, with a QR code that opens directions in Google Maps.',name:'Name',street:'Street',city:'Post code & town',phone:'Phone',rmaps:'Restaurant Google Maps link',hours:'Opening hours (write closed if closed)',revs:'Guest reviews — copy real ones from Google',rtext:'Review',rfrom:'From',addr:'+ Add review',
+s4:'Put it on a TV',how:['Press <b>Save &amp; update TVs</b>.','Send the TV owner this link: <b>aymanqochan-lab.github.io/qojan-design-agentur/tv/</b>','On the Fire TV open <b>Silk Browser</b> and paste the link (use the Fire TV phone app keyboard).','Pick the place once, then choose full screen. Done — it updates by itself.'],
+unsaved:'Unsaved changes',notok:'Connect your GitHub key in step 0 to save.',badtok:'The GitHub key was refused. Check it in step 0.',s0:'Connect (first time only)',s0n:'Paste your GitHub key once. It stays saved on this phone.',s0ok:'Connected — Save updates every TV.',s0out:'Remove key from this phone',s0btn:'Connect',saved:'All saved',prevonly:'Preview only — saving works in the published page',save:'Save & update TVs',saving:'Saving…',savedok:'Saved — TVs update within about 5 minutes',conflict:'Someone saved at the same time — loading the newest version.',ro:'This view is read-only.',rate:'Too many saves — wait a minute.',fail:'Could not save. Try again.',badlink:'No location found in that link. In Google Maps open the place, press Share → Copy link, and paste it here.',dn:['Sun','Mon','Tue','Wed','Thu','Fri','Sat']},
+sv:{sub:'Redigera i mobilen eller datorn. Tryck Spara så uppdateras alla tv-apparater.',theme_l:'Ljust utseende',theme_d:'Mörkt utseende',lang:'English',prev:'Visa tv:n',
+s1:'Dina erbjudanden',s1n:'En bild, ett namn och ett pris. Välj dagar och tider när det visas.',photo:'Tryck för att lägga till bild',rm:'Ta bort',title:'Rättens namn',price:'Pris (kr)',desc:'Kort beskrivning',days:'Visas på',from:'Från',until:'Till',more:'Fler val',label:'Liten rubrik',secs:'Sekunder på skärmen',add:'+ Lägg till erbjudande',newo:'Ny rätt',
+s2:'Var tv-apparaterna finns',s2n:'Lägg till varje plats med en tv. Klistra in platsens Google Maps-länk så visar tv:n det riktiga avståndet till restaurangen.',sname:'Platsens namn (t.ex. Lindesberg Bowling)',smaps:'Platsens Google Maps-länk',smapsPh:'Klistra in länken här',locok:'Plats hittad — tv:n visar',locno:'Ingen plats än — tv:n visar adressen i stället.',busy:'Visa mer när det är fullt',busyOnly:'Visa bara när det är fullt',bfrom:'Fullt från',banner:'Banner när det är fullt',adds:'+ Lägg till plats',news:'Ny plats',
+s3:'Restauranginfo',s3n:'Visas mellan bilderna, med en QR-kod som öppnar vägbeskrivning i Google Maps.',name:'Namn',street:'Gata',city:'Postnummer & ort',phone:'Telefon',rmaps:'Restaurangens Google Maps-länk',hours:'Öppettider (skriv stängt om stängt)',revs:'Gästrecensioner — kopiera riktiga från Google',rtext:'Recension',rfrom:'Från',addr:'+ Lägg till recension',
+s4:'Visa på en tv',how:['Tryck <b>Spara &amp; uppdatera tv</b>.','Skicka länken till tv-ägaren: <b>aymanqochan-lab.github.io/qojan-design-agentur/tv/</b>','Öppna <b>Silk Browser</b> på Fire TV och klistra in länken (använd tangentbordet i Fire TV-appen på mobilen).','Välj platsen en gång och sedan helskärm. Klart — den uppdateras av sig själv.'],
+unsaved:'Ej sparade ändringar',notok:'Anslut din GitHub-nyckel i steg 0 för att spara.',badtok:'GitHub-nyckeln nekades. Kontrollera den i steg 0.',s0:'Anslut (bara första gången)',s0n:'Klistra in din GitHub-nyckel en gång. Den sparas i den här mobilen.',s0ok:'Ansluten — Spara uppdaterar alla tv-apparater.',s0out:'Ta bort nyckeln från mobilen',s0btn:'Anslut',saved:'Allt sparat',prevonly:'Förhandsvisning — sparande fungerar på den publicerade sidan',save:'Spara & uppdatera tv',saving:'Sparar…',savedok:'Sparat — tv-apparaterna uppdateras inom ca 5 minuter',conflict:'Någon sparade samtidigt — laddar den senaste versionen.',ro:'Den här vyn kan bara läsas.',rate:'För många sparningar — vänta en minut.',fail:'Kunde inte spara. Försök igen.',badlink:'Ingen plats i länken. Öppna platsen i Google Maps, tryck Dela → Kopiera länk och klistra in här.',dn:['Sön','Mån','Tis','Ons','Tor','Fre','Lör']}};
+function U(k){return (UI[S.lang]||UI.sv)[k]}
+function dayChips(arr,path){return '<div class="chips">'+[1,2,3,4,5,6,0].map(function(d){return '<button type="button" class="chip'+(arr.indexOf(d)>-1?' on':'')+'" data-day="'+d+'" data-path="'+path+'">'+U('dn')[d]+'</button>'}).join('')+'</div>'}
+function renderStudio(){stopTV();var r=S.rest;
+ var h='<div class="studio"><div class="top"><div style="display:flex;gap:14px;align-items:center">'+(S.rest.logo?'<img src="'+S.rest.logo+'" alt="" style="width:54px;height:54px;border-radius:50%">':'')+'<div><h1>Weekboard TV</h1><div class="sub">'+esc(r.name)+' — '+U('sub')+'</div></div></div><div class="row"><button class="btn" id="lang">'+U('lang')+'</button><button class="btn" id="theme">'+(S.theme==='light'?U('theme_d'):U('theme_l'))+'</button><button class="btn pri" id="play">'+U('prev')+'</button></div></div>';
+ h+='<section class="step"'+(tok()?' style="padding:12px 18px"':'')+'><header style="margin:0"><span class="num">'+(tok()?'✓':'0')+'</span><div style="flex:1"><h2>'+U('s0')+'</h2><div class="note">'+(tok()?U('s0ok'):U('s0n'))+'</div>'+(tok()?'<button class="x" id="tokout">'+U('s0out')+'</button>':'<div class="row" style="margin-top:8px"><input id="tokin" type="password" autocomplete="off" placeholder="github_pat_…" style="flex:1;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--ink)"><button class="btn pri" id="tokbtn">'+U('s0btn')+'</button></div>')+'</div></header></section>';
+ h+='<section class="step"><header><span class="num">1</span><div><h2>'+U('s1')+'</h2><div class="note">'+U('s1n')+'</div></div></header>';
+ S.offers.forEach(function(o,k){var p='offers.'+k;if(o.type==='week'){o.week=o.week||{};h+='<div class="card" style="grid-template-columns:1fr"><div class="row" style="justify-content:space-between"><b style="font-size:17px">'+(S.lang==='en'?'Weekly lunch':'Veckans lunch')+'</b><button class="x" data-del="'+k+'">'+U('rm')+'</button></div><div class="note">'+(S.lang==='en'?'Write one dish per day. The TV shows today\'s dish big, and the whole week next to it.':'Skriv en rätt per dag. Tv:n visar dagens rätt stort och hela veckan bredvid.')+'</div><div class="grid">'+[1,2,3,4,5].map(function(d){return field(U('dn')[d],p+'.week.'+d,o.week[d]||'')}).join('')+field(S.lang==='en'?'Vegetarian this week':'Veckans vegetariska',p+'.veg',o.veg||'')+field(U('price'),p+'.price',o.price||'','text','inputmode="numeric"')+field(S.lang==='en'?'Week no.':'Vecka',p+'.wnum',o.wnum||'')+field(U('from'),p+'.start',o.start,'time')+field(U('until'),p+'.end',o.end,'time')+'</div></div>';return}h+='<div class="card"><div><label class="thumb" style="background-image:url('+(o.image||'')+')">'+(o.image?'':U('photo'))+'<input type="file" accept="image/*" data-img="'+k+'"></label><div class="row" style="margin-top:8px"><button class="x" data-del="'+k+'">'+U('rm')+'</button></div></div><div style="display:grid;gap:10px"><div class="grid">'+field(U('title'),p+'.title',o.title)+field(U('price'),p+'.price',o.price,'text','inputmode="numeric"')+'</div>'+field(U('desc'),p+'.body',o.body,'area')+'<div class="note">'+U('days')+'</div>'+dayChips(o.days,p+'.days')+'<div class="grid">'+field(U('from'),p+'.start',o.start,'time')+field(U('until'),p+'.end',o.end,'time')+'</div><details><summary class="note" style="cursor:pointer">'+U('more')+'</summary><div class="grid" style="margin-top:8px">'+field(U('label'),p+'.kicker',o.kicker||'')+field(U('secs'),p+'.seconds',o.seconds,'number','min="4" max="60"')+'</div></details></div></div>'});
+ h+='<button class="btn" id="addOffer">'+U('add')+'</button></section>';
+ h+='<section class="step"><header><span class="num">2</span><div><h2>'+U('s2')+'</h2><div class="note">'+U('s2n')+'</div></div></header>';
+ S.screens.forEach(function(s,k){var p='screens.'+k,d=s.lat!=null?distText(s):null;h+='<div class="card" style="grid-template-columns:1fr"><div class="grid">'+field(U('sname'),p+'.name',s.name)+'<label class="f">'+U('smaps')+'<input data-maps="'+k+'" placeholder="'+U('smapsPh')+'" value="'+(s.lat!=null?s.lat+', '+s.lng:'')+'"></label></div><div class="note" style="margin-top:6px">'+(d?'<span class="ok">'+U('locok')+'</span> <b>'+esc(d.big)+'</b> · '+esc(d.time):U('locno'))+'</div>'+
+  '<div style="margin-top:12px;border-top:1px solid var(--line);padding-top:12px"><div class="row"><button type="button" class="chip'+(s.peak.on?' on':'')+'" data-tog="'+p+'.peak.on">'+U('busy')+'</button>'+(s.peak.on?'<button type="button" class="chip'+(s.peak.only?' on':'')+'" data-tog="'+p+'.peak.only">'+U('busyOnly')+'</button>':'')+'</div>'+(s.peak.on?'<div style="margin-top:10px;display:grid;gap:10px">'+dayChips(s.peak.days,p+'.peak.days')+'<div class="grid">'+field(U('bfrom'),p+'.peak.start',s.peak.start,'time')+field(U('until'),p+'.peak.end',s.peak.end,'time')+field(U('banner'),p+'.peak.line',s.peak.line)+'</div></div>':'')+'</div><div class="row" style="margin-top:8px"><button class="x" data-dels="'+k+'">'+U('rm')+'</button></div></div>'});
+ h+='<button class="btn" id="addScreen">'+U('adds')+'</button></section>';
+ h+='<section class="step"><header><span class="num">3</span><div><h2>'+U('s3')+'</h2><div class="note">'+U('s3n')+'</div></div></header><details><summary class="btn" style="display:inline-flex;align-items:center;list-style:none">'+esc(r.name)+' · '+esc(r.street)+' ✎</summary><div style="margin-top:12px"><div class="grid">'+field(U('name'),'rest.name',r.name)+field(U('street'),'rest.street',r.street)+field(U('city'),'rest.city',r.city)+field(U('phone'),'rest.phone',r.phone)+field(S.lang==='en'?'Award / badge':'Utmärkelse','rest.award',r.award||'')+'<label class="f">'+U('rmaps')+'<input data-rmaps="1" value="'+r.lat+', '+r.lng+'"></label></div>';
+ h+='<div class="note" style="margin:14px 0 6px">'+U('hours')+'</div><div class="grid">'+[1,2,3,4,5,6,0].map(function(d){var v=r.hours[d];return '<label class="f">'+U('dn')[d]+'<input data-hours="'+d+'" value="'+(v?v[0]+'-'+v[1]:(S.lang==='en'?'closed':'stängt'))+'" placeholder="10:00-21:00"></label>'}).join('')+'</div>';
+ h+='<div class="note" style="margin:14px 0 6px">'+U('revs')+'</div>';
+ r.reviews.forEach(function(v,k){h+='<div class="grid" style="margin-bottom:8px">'+field(U('rtext'),'rest.reviews.'+k+'.text',v.text,'area')+'<div style="display:grid;gap:6px">'+field(U('rfrom'),'rest.reviews.'+k+'.from',v.from)+'<button class="x" data-delr="'+k+'" style="justify-self:start">'+U('rm')+'</button></div></div>'});
+ h+='<button class="btn" id="addRev">'+U('addr')+'</button></div></details></section>';
+ h+='<section class="step"><header><span class="num">4</span><div><h2>'+U('s4')+'</h2></div></header><button class="btn" id="guide" style="margin-bottom:10px">'+(S.lang==='en'?'See what the TV owner sees on their phone':'Se vad tv-ägaren ser i mobilen')+'</button><ol class="howto">'+U('how').map(function(x){return '<li>'+x+'</li>'}).join('')+'</ol></section>';
+ h+='<div class="bar"><span id="savestate" class="note">'+(dirty?U('unsaved'):(tok()?U('saved'):U('notok')))+'</span><button class="btn pri" id="save">'+U('save')+'</button></div></div>';
+ app.innerHTML=h;bind()}
+function bind(){
+ app.querySelectorAll('[data-path]').forEach(function(el){if(el.classList.contains('chip'))return;el.addEventListener('input',function(){var p=el.getAttribute('data-path'),v=el.value;if(el.type==='number')v=+v||8;set(p,v)});el.addEventListener('change',function(){if(/screens|rest\./.test(el.getAttribute('data-path')))renderStudio()})});
+ app.querySelectorAll('.chip[data-day]').forEach(function(b){b.onclick=function(){var p=b.getAttribute('data-path'),a=get(p),d=+b.getAttribute('data-day'),i=a.indexOf(d);if(i>-1)a.splice(i,1);else a.push(d);a.sort();markDirty();b.classList.toggle('on')}});
+ app.querySelectorAll('[data-tog]').forEach(function(b){b.onclick=function(){var p=b.getAttribute('data-tog');set(p,!get(p));renderStudio()}});
+ app.querySelectorAll('[data-img]').forEach(function(inp){inp.onchange=function(){var f=inp.files[0];if(!f)return;compress(f).then(function(u){S.offers[+inp.getAttribute('data-img')].image=u;markDirty();renderStudio()})}});
+ app.querySelectorAll('[data-maps]').forEach(function(inp){inp.onchange=function(){var c=parseMaps(inp.value),s=S.screens[+inp.getAttribute('data-maps')];if(c){s.lat=c.lat;s.lng=c.lng;markDirty()}else if(!inp.value.trim()){s.lat=null;s.lng=null;markDirty()}else{alertNote(inp,U('badlink'));return}renderStudio()}});
+ var rm=app.querySelector('[data-rmaps]');rm.onchange=function(){var c=parseMaps(rm.value);if(c){S.rest.lat=c.lat;S.rest.lng=c.lng;markDirty();renderStudio()}else alertNote(rm,U('badlink'))};
+ app.querySelectorAll('[data-hours]').forEach(function(inp){inp.onchange=function(){var v=inp.value.trim().toLowerCase(),m=v.match(/(\d{1,2})(?::(\d\d))?\s*[-–]\s*(\d{1,2})(?::(\d\d))?/);var d=+inp.getAttribute('data-hours');
+  function f(h,mm){return ('0'+h).slice(-2)+':'+(mm||'00')}S.rest.hours[d]=m?[f(m[1],m[2]),f(m[3],m[4])]:null;markDirty()}});
+ app.querySelectorAll('[data-del]').forEach(function(b){b.onclick=function(){S.offers.splice(+b.getAttribute('data-del'),1);markDirty();renderStudio()}});
+ app.querySelectorAll('[data-dels]').forEach(function(b){b.onclick=function(){S.screens.splice(+b.getAttribute('data-dels'),1);markDirty();renderStudio()}});
+ app.querySelectorAll('[data-delr]').forEach(function(b){b.onclick=function(){S.rest.reviews.splice(+b.getAttribute('data-delr'),1);markDirty();renderStudio()}});
+ document.getElementById('addOffer').onclick=function(){S.offers.push({id:uid(),title:U('newo'),body:'',price:'',kicker:'',image:null,days:[1,2,3,4,5],start:'11:00',end:'15:00',seconds:8});markDirty();renderStudio()};
+ document.getElementById('addScreen').onclick=function(){S.screens.push({id:uid(),name:U('news'),lat:null,lng:null,peak:{on:false,only:false,days:[5,6],start:'18:00',end:'23:00',line:'Hungrig efter bowlingen?'}});markDirty();renderStudio()};
+ document.getElementById('addRev').onclick=function(){S.rest.reviews.push({text:'',from:'Google review'});markDirty();renderStudio()};
+ document.getElementById('theme').onclick=function(){S.theme=S.theme==='light'?'dark':'light';applyTheme();markDirty();renderStudio()};
+ document.getElementById('lang').onclick=function(){S.lang=S.lang==='en'?'sv':'en';markDirty();renderStudio()};
+ document.getElementById('play').onclick=function(){startTV(S.screens.length>1)};
+ document.getElementById('save').onclick=save;var tb=document.getElementById('tokbtn');if(tb)tb.onclick=function(){var v=document.getElementById('tokin').value.trim();if(v){store('wb-token',v);renderStudio()}};var to=document.getElementById('tokout');if(to)to.onclick=function(){try{localStorage.removeItem('wb-token')}catch(e){}renderStudio()};document.getElementById('guide').onclick=renderGuide}
+function alertNote(el,msg){var n=el.parentNode.querySelector('.err');if(!n){n=document.createElement('div');n.className='err note';n.style.color='#d9483b';el.parentNode.appendChild(n)}n.textContent=msg}
+
+function gh(path,opt){opt=opt||{};opt.headers={'Authorization':'Bearer '+tok(),'Accept':'application/vnd.github+json'};return fetch('https://api.github.com/repos/'+REPO+'/contents/'+DIR+path+(opt.method?'':'?t='+Date.now()),opt).then(function(r){return r.json().then(function(j){if(!r.ok){var e=new Error(j.message||r.status);e.status=r.status;throw e}return j})})}
+function b64utf8(s){return btoa(unescape(encodeURIComponent(s)))}
+function putFile(path,b64,msg){return gh(path).then(function(j){return j.sha},function(e){if(e.status===404)return null;throw e}).then(function(sha){var body={message:msg,content:b64};if(sha)body.sha=sha;return gh(path,{method:'PUT',body:JSON.stringify(body)})})}
+function save(){var s=document.getElementById('savestate');if(!tok()){s.textContent=U('notok');var k=document.getElementById('tokin');if(k)k.focus();return}
+ s.textContent=U('saving');var D=JSON.parse(JSON.stringify(S)),chain=Promise.resolve();
+ D.offers.forEach(function(o){if(o.image&&o.image.indexOf('data:')===0){var name='img/'+o.id+'-'+Date.now()+'.jpg',b=o.image.split(',')[1],ti=o.title;chain=chain.then(function(){return putFile(name,b,'Weekboard: photo for '+ti)});o.image=name}});
+ chain.then(function(){return putFile('data.json',b64utf8(JSON.stringify(D,null,1)),'Weekboard: update offers')}).then(function(){S=D;dirty=false;s.innerHTML='<span class="ok">'+U('savedok')+'</span>'}).catch(function(e){s.textContent=(e.status===401||e.status===403)?U('badtok'):U('fail')+' ('+e.message+')'})}
+/* ---------- PHONE GUIDE (Swedish, for the TV owner) ---------- */
+function renderGuide(){stopTV();document.body.style.overflow='';var src='guide.mp4';
+ app.innerHTML='<div class="studio" style="max-width:640px"><div class="row" style="gap:12px">'+(S.rest.logo?'<img src="'+S.rest.logo+'" alt="" style="width:56px;height:56px;border-radius:50%">':'')+'<div class="tag" style="color:var(--accent)">'+esc(S.rest.name)+'</div></div><h1 style="font-size:30px;margin:6px 0 8px">Så visar du erbjudandena på din tv</h1><p class="note" style="font-size:15px;margin:0 0 16px">Titta på filmen (40 sekunder). Tre enkla steg.</p>'+
+ (src?'<video controls playsinline preload="metadata" style="width:100%;border-radius:16px;background:#000;display:block" src="'+src+'"></video>':'')+
+ '<section class="step"><ol class="howto"><li>Tryck <b>Home</b> på fjärrkontrollen och öppna appen <b>Silk</b>.</li><li>Klistra in <b>samma länk</b> som du öppnade nu. Enklast med appen <b>Amazon Fire TV</b> i mobilen.</li><li>Välj din plats och tryck <b>OK</b>. Klart – erbjudandena uppdateras av sig själva.</li></ol></section>'+
+ '<button class="btn pri" id="gplay" style="width:100%">Visa hur det ser ut på tv:n</button>'+(editor?'<button class="btn" id="gback" style="width:100%;margin-top:10px">Back to studio</button>':'')+'</div>';
+ document.getElementById('gplay').onclick=function(){startTV()};var gb=document.getElementById('gback');if(gb)gb.onclick=renderStudio}
+/* ---------- BOOT ---------- */
+var wantTV=/screen=|tv/.test(location.hash);
+var UA=navigator.userAgent||'';var isTVua=/AFT|Silk|SMART-TV|SmartTV|Web0S|webOS|Tizen|BRAVIA|GoogleTV|Android TV|CrKey|AppleTV|HbbTV|NetCast/i.test(UA);
+var isPhone=!isTVua&&(/iPhone|iPod|Android.+Mobile|Mobi/i.test(UA)||(window.innerWidth<760&&window.innerHeight>window.innerWidth));
+function boot(){if(editor&&!wantTV)renderStudio();else if(isPhone&&!wantTV)renderGuide();else startTV()}
+boot();
+
+var lastJSON=JSON.stringify(S);setInterval(function(){if(editor)return;loadData().then(function(d){var j=JSON.stringify(d);if(j!==lastJSON){lastJSON=j;S=d;applyTheme()}}).catch(function(){})},5*60*1000);
+}
+})();
+</script>
+
+</body></html>

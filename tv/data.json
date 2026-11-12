@@ -1,0 +1,157 @@
+{
+ "theme": "dark",
+ "lang": "sv",
+ "rest": {
+  "name": "Grillköket Lindesberg",
+  "street": "Molinders väg 2",
+  "city": "711 35 Lindesberg",
+  "phone": "0581-100 74",
+  "lat": 59.6035612,
+  "lng": 15.2103772,
+  "hours": {
+   "0": [
+    "10:00",
+    "21:00"
+   ],
+   "1": [
+    "10:00",
+    "21:00"
+   ],
+   "2": [
+    "10:00",
+    "21:00"
+   ],
+   "3": [
+    "10:00",
+    "21:00"
+   ],
+   "4": [
+    "10:00",
+    "21:00"
+   ],
+   "5": [
+    "10:00",
+    "22:00"
+   ],
+   "6": [
+    "10:00",
+    "22:00"
+   ]
+  },
+  "reviews": [
+   {
+    "text": "Fantastiskt god fiskgratäng, god sallad och rent och fräscht i lokalen, trevligt bemötande. Rekommenderas!",
+    "from": "Gäst på Restaurangkartan"
+   }
+  ],
+  "award": "Årets Företagare i Lindesberg",
+  "logo": "img/logo.png"
+ },
+ "offers": [
+  {
+   "id": "veckans",
+   "type": "week",
+   "title": "Veckans lunch",
+   "wnum": "v.46",
+   "week": {
+    "1": "Wallenbergare, hemgjord potatismos, lingon och ärtor",
+    "2": "Pyttipanna med rödbetor och ägg",
+    "3": "Stekt hokifilé, kokt potatis och kall dillsås",
+    "4": "Raggmunk med stekt fläsk, lingon",
+    "5": "Plommonspäckad karré, rostad potatis, äppelmos och gräddsås"
+   },
+   "veg": "Halloumiburgarmeny",
+   "price": "",
+   "image": null,
+   "days": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "start": "11:00",
+   "end": "14:00",
+   "seconds": 12
+  },
+  {
+   "id": "oxfile",
+   "title": "Oxfiléplanka",
+   "body": "Oxfilé med potatismos, sauterade grönsaker, rödvinssås och béarnaise. Glutenfri.",
+   "price": "249",
+   "kicker": "À la carte",
+   "image": "img/oxfile.jpg",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "start": "14:00",
+   "end": "22:00",
+   "seconds": 8
+  },
+  {
+   "id": "gos",
+   "title": "Gösplanka",
+   "body": "Gös med potatismos, sauterade grönsaker och räk- och dillsås. Glutenfri.",
+   "price": "229",
+   "kicker": "Fisk",
+   "image": "img/gos.jpg",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "start": "14:00",
+   "end": "22:00",
+   "seconds": 8
+  },
+  {
+   "id": "kyckling",
+   "title": "Kycklingspett",
+   "body": "Kycklingspett med klyftpotatis, sauterade grönsaker, ajvar och tzatziki. Glutenfri.",
+   "price": "190",
+   "kicker": "Grill",
+   "image": "img/kyckling.jpg",
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "start": "14:00",
+   "end": "22:00",
+   "seconds": 8
+  }
+ ],
+ "screens": [
+  {
+   "id": "bowling",
+   "name": "Example: bowling hall",
+   "lat": 59.5937,
+   "lng": 15.2283,
+   "peak": {
+    "on": true,
+    "only": false,
+    "days": [
+     5,
+     6
+    ],
+    "start": "18:00",
+    "end": "23:00",
+    "line": "Hungrig efter bowlingen?"
+   }
+  }
+ ]
+}
