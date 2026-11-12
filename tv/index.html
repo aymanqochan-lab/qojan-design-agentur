@@ -110,7 +110,7 @@ loadData().then(function(d){S=d;start()}).catch(function(){document.getElementBy
 function start(){
 var app=document.getElementById('app');
 var DAYS_EN=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-var T={sv:{days:['Sön','Mån','Tis','Ons','Tor','Fre','Lör'],today:'Idag',from:'från dig',walk:'min promenad',drive:'min med bil',open:'Öppet nu',closes:'stänger',closed:'Stängt just nu',opens:'öppnar',addr:'Adress',phone:'Telefon',hours:'Öppettider',status:'Just nu',scan:'Skanna – hitta hit',scanSub:'Vägbeskrivning i Google Maps direkt i mobilen',findus:'Hitta hit',lunch:'Dagens lunch',veg:'Veckans vegetariska',incl:'Inkl. sallad, bröd och dryck',week:'Veckans lunch',pick:'Vilken skärm är det här?',pickSub:'Välj en gång – tv:n kommer ihåg det.',away:'bort',guests:'Vad gästerna säger'},
+var T={sv:{days:['Sön','Mån','Tis','Ons','Tor','Fre','Lör'],today:'Idag',from:'från dig',walk:'min promenad',drive:'min med bil',open:'Öppet nu',closes:'stänger',closed:'Stängt just nu',opens:'öppnar',addr:'Adress',phone:'Telefon',hours:'Öppettider',status:'Just nu',scan:'Skanna – hitta hit',scanSub:'Se hur långt det är från dig och få vägbeskrivning',findus:'Hitta hit',lunch:'Dagens lunch',veg:'Veckans vegetariska',incl:'Inkl. sallad, bröd och dryck',week:'Veckans lunch',pick:'Vilken skärm är det här?',pickSub:'Välj en gång – tv:n kommer ihåg det.',away:'bort',guests:'Vad gästerna säger'},
 en:{days:DAYS_EN,today:'Today',from:'from you',walk:'min walk',drive:'min by car',open:'Open now',closes:'closes',closed:'Closed now',opens:'opens',addr:'Address',phone:'Phone',hours:'Hours',status:'Right now',scan:'Scan to find us',scanSub:'Directions in Google Maps, straight to your phone',findus:'Find us',lunch:"Today's lunch",veg:'Vegetarian this week',incl:'Incl. salad, bread and drink',week:'Lunch this week',pick:'Which screen is this?',pickSub:'Pick once – the TV remembers.',away:'away',guests:'What guests say'}};
 function L(){return T.sv}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
@@ -127,7 +127,7 @@ function km(a,b,c,d){var R=6371,r=Math.PI/180,x=Math.sin((c-a)*r/2),y=Math.sin((
 function distText(screen){if(!screen||screen.lat==null)return null;var k=km(screen.lat,screen.lng,S.rest.lat,S.rest.lng);
  var big=k<1?Math.round(k*1000/10)*10+' m':(k<10?k.toFixed(1).replace('.',','):Math.round(k))+' km';
  var t=k<1.3?Math.max(2,Math.round(k*1.25/4.8*60))+' '+L().walk:Math.max(3,Math.round(k*1.3/45*60+2))+' '+L().drive;return {big:big,time:t,km:k}}
-function mapsUrl(){return 'https://www.google.com/maps/dir/?api=1&destination='+S.rest.lat+','+S.rest.lng}
+function mapsUrl(){return 'https://aymanqochan-lab.github.io/qojan-design-agentur/tv/go/'}
 function openStatus(d){var h=S.rest.hours[d.getDay()];var l=L();if(!h)return {open:false,txt:l.closed};
  var n=d.getHours()*60+d.getMinutes();if(n>=mins(h[0])&&n<mins(h[1]))return {open:true,txt:l.open+' · '+l.closes+' '+h[1]};
  return {open:false,txt:l.closed+(n<mins(h[0])?' · '+l.opens+' '+h[0]:'')}}

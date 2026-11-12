@@ -1,0 +1,38 @@
+<!doctype html><html lang="sv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Grillköket Lindesberg – Hitta hit</title><link rel="icon" href="../img/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@400;600&display=swap">
+<style>
+:root{--bg:#15120f;--card:#1f1b17;--ink:#f4ede4;--mute:#a59a8e;--line:#352e27;--acc:#e8743a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,sans-serif}
+main{max-width:520px;margin:0 auto;padding:28px 16px 40px}
+.top{display:flex;align-items:center;gap:14px}.top img{width:64px;height:64px;border-radius:50%;box-shadow:0 0 0 3px rgba(232,116,58,.5)}
+h1{font:800 28px/1.1 'Bricolage Grotesque',Inter,sans-serif;margin:0}.badge{display:inline-block;margin-top:6px;font-size:13px;color:#ffb98a;border:1px solid rgba(232,116,58,.5);border-radius:99px;padding:2px 10px}
+.dist{margin:26px 0 6px;font:800 64px/1 'Bricolage Grotesque',Inter,sans-serif;color:var(--acc)}.sub{color:var(--mute);margin:0 0 20px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:99px;font-weight:600;text-decoration:none;margin:10px 0;font-size:17px}
+.pri{background:var(--acc);color:#fff}.sec{border:1px solid var(--line);color:var(--ink);background:var(--card)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-top:22px}
+.card h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#ffb98a;margin:0 0 6px}.card p{margin:0}
+.open{color:#5cc483;font-weight:600}.closed{color:#ff8a7a;font-weight:600}
+</style></head><body><main id="m"><p class="sub">Laddar…</p></main>
+<script>
+var DN=['Söndag','Måndag','Tisdag','Onsdag','Torsdag','Fredag','Lördag'];
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function km(a,b,c,d){var R=6371,r=Math.PI/180,x=Math.sin((c-a)*r/2),y=Math.sin((d-b)*r/2),h=x*x+Math.cos(a*r)*Math.cos(c*r)*y*y;return R*2*Math.atan2(Math.sqrt(h),Math.sqrt(1-h))}
+function mins(h){var p=String(h).split(':');return +p[0]*60+(+p[1]||0)}
+fetch('../data.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(S){
+ var r=S.rest,d=new Date(),day=d.getDay(),h=r.hours[day],n=d.getHours()*60+d.getMinutes(),open=h&&n>=mins(h[0])&&n<mins(h[1]);
+ var maps='https://www.google.com/maps/dir/?api=1&destination='+r.lat+','+r.lng,tel='tel:'+String(r.phone).replace(/[^\d+]/g,'');
+ var lunch='';S.offers.forEach(function(o){if(o.type==='week'&&o.week&&o.week[day])lunch=o.week[day]});
+ document.getElementById('m').innerHTML='<div class="top">'+(r.logo?'<img src="../'+esc(r.logo)+'" alt="">':'')+'<div><h1>'+esc(r.name)+'</h1>'+(r.award?'<span class="badge">★ '+esc(r.award)+'</span>':'')+'</div></div>'+
+ '<div class="dist" id="dist">…</div><p class="sub" id="dsub">Vi räknar ut avståndet från dig…</p>'+
+ '<a class="btn pri" href="'+maps+'">Vägbeskrivning i Google Maps</a><a class="btn sec" href="'+tel+'">Ring '+esc(r.phone)+'</a>'+
+ '<div class="card"><h2>Just nu</h2><p class="'+(open?'open':'closed')+'">'+(open?'Öppet · stänger '+h[1]:'Stängt just nu'+(h&&n<mins(h[0])?' · öppnar '+h[0]:''))+'</p><p style="margin-top:6px;color:var(--mute)">'+esc(r.street)+', '+esc(r.city)+'</p></div>'+
+ (lunch?'<div class="card"><h2>Dagens lunch · '+DN[day]+'</h2><p style="font-size:19px;font-weight:600">'+esc(lunch)+'</p></div>':'');
+ var D=document.getElementById('dist'),sub=document.getElementById('dsub');
+ if(!navigator.geolocation){D.textContent='';sub.textContent='Tryck på knappen för vägbeskrivning.';return}
+ navigator.geolocation.getCurrentPosition(function(p){var k=km(p.coords.latitude,p.coords.longitude,r.lat,r.lng);
+  D.textContent=(k<1?Math.round(k*1000/10)*10+' m':(k<10?k.toFixed(1).replace('.',','):Math.round(k))+' km');
+  sub.textContent='från dig · '+(k<1.3?'ca '+Math.max(2,Math.round(k*1.25/4.8*60))+' min promenad':'ca '+Math.max(3,Math.round(k*1.3/45*60+2))+' min med bil')},
+ function(){D.textContent='';sub.textContent='Tillåt plats för att se avståndet, eller tryck på vägbeskrivning.'},{enableHighAccuracy:true,timeout:12000})
+}).catch(function(){document.getElementById('m').innerHTML='<p>Kunde inte ladda. Försök igen.</p>'});
+</script></body></html>
